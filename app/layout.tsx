@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -71,23 +72,32 @@ export default function RootLayout({
         <link rel="canonical" href="https://valorantviral.vercel.app" />
         <meta name="theme-color" content="#050508" />
         <link rel="icon" href="/favicon.ico" />
-
-        {/* ── Google AdSense verification + Auto Ads ── */}
-        {/* This script in <head> is what Google crawls to verify site ownership */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5851997796287592"
-          crossOrigin="anonymous"
-        />
-
-        {/* AdSense site verification meta tag */}
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-5851997796287592"
-        />
+        {/* Google AdSense ownership verification */}
+        <meta name="google-adsense-account" content="ca-pub-5851997796287592" />
+        {/* Google Search Console / AdSense site verification */}
+        <meta name="google-site-verification" content="VbOud-rNqUMkcxFbAo5MAilwSmfScxu3ro_2z63BxUw" />
       </head>
       <body className={`${inter.className} animated-bg min-h-screen`}>
         {children}
+
+        {/* Google AdSense — loads after page is interactive */}
+        <Script
+          id="adsense-init"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5851997796287592"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
+        {/* Auto Ads — tells AdSense to automatically place ads on the page */}
+        <Script id="adsense-auto" strategy="afterInteractive">
+          {`
+            (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-5851997796287592",
+              enable_page_level_ads: true
+            });
+          `}
+        </Script>
       </body>
     </html>
   );
