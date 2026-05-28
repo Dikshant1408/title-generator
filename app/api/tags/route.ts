@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 
 export const runtime = "edge";
 
@@ -11,50 +11,63 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ tags: [] });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
       return NextResponse.json({ tags: [] });
     }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const groq = new Groq({ apiKey });
 
     const context = [
       description,
       agent ? `Agent: ${agent}` : "",
-      map ? `Map: ${map}` : "",
-      rank ? `Rank: ${rank}` : "",
-    ].filter(Boolean).join(", ");
+      map    ? `Map: ${map}`   : "",
+      rank   ? `Rank: ${rank}` : "",
+    ]
+      .filter(Boolean)
+      .join(", ");
 
-    const prompt = `You are a Valorant content SEO expert. Generate 15 highly specific hashtags for this clip: "${context}"
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
+      temperature: 0.8,
+      max_tokens: 256,
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a Valorant content SEO expert. Respond with a JSON array of hashtag strings only — no markdown, no explanation.",
+        },
+        {
+          role: "user",
+          content: `Generate 15 highly specific hashtags for this Valorant clip: "${context}"
 
-Return ONLY a JSON array of hashtag strings, no explanation, no markdown:
-["#tag1","#tag2","#tag3",...]
+Return ONLY a JSON array like: ["#tag1","#tag2","#tag3",...]
 
 Rules:
 - Include agent-specific tags if agent is mentioned
-- Include map-specific tags if map is mentioned  
+- Include map-specific tags if map is mentioned
 - Include rank-specific tags if rank is mentioned
 - Mix niche Valorant tags with broader gaming tags
-- All tags must start with #
-- No spaces in tags
-- Make them specific and relevant to the clip description`;
+- All tags must start with #, no spaces inside tags`,
+        },
+      ],
+    });
 
-    const result = await model.generateContent(prompt);
-    const text = result.response.text().trim();
+    const text = (completion.choices[0]?.message?.content ?? "").trim();
 
     let tags: string[] = [];
     try {
-      const cleaned = text.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+      const cleaned = text
+        .replace(/```json\n?/g, "")
+        .replace(/```\n?/g, "")
+        .trim();
       tags = JSON.parse(cleaned);
       if (!Array.isArray(tags)) tags = [];
-      // Ensure all start with #
       tags = tags
         .filter((t): t is string => typeof t === "string")
-        .map(t => t.startsWith("#") ? t : `#${t}`)
+        .map(t => (t.startsWith("#") ? t : `#${t}`))
         .slice(0, 20);
     } catch {
-      // Extract hashtags from raw text as fallback
       const matches = text.match(/#\w+/g);
       tags = matches ? matches.slice(0, 20) : [];
     }

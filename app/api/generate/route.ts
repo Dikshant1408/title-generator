@@ -1,19 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 
 export const runtime = "edge";
 
 const CLIP_TYPES: Record<string, string> = {
-  ace: "ACE (5-kill round)",
-  clutch: "Clutch play",
-  funny: "Funny/Fail moment",
+  ace:      "ACE (5-kill round)",
+  clutch:   "Clutch play",
+  funny:    "Funny/Fail moment",
   operator: "Operator/Sniper highlight",
-  sheriff: "Sheriff pistol highlight",
-  vct: "VCT/Pro-style play",
-  anime: "Anime edit / cinematic",
-  montage: "Montage highlight",
-  toxic: "Toxic/Trash talk moment",
-  pro: "Pro player style",
+  sheriff:  "Sheriff pistol highlight",
+  vct:      "VCT/Pro-style play",
+  anime:    "Anime edit / cinematic",
+  montage:  "Montage highlight",
+  toxic:    "Toxic/Trash talk moment",
+  pro:      "Pro player style",
 };
 
 export async function POST(req: NextRequest) {
@@ -27,25 +27,33 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
-        { error: "API key not configured. Please add GEMINI_API_KEY to your .env.local file." },
+        { error: "API key not configured. Please add GROQ_API_KEY to your .env.local file." },
         { status: 500 }
       );
     }
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
+    const groq = new Groq({ apiKey });
     const clipTypeLabel = CLIP_TYPES[clipType] || "General highlight";
 
-    const prompt = `You are a viral gaming content expert specializing in Valorant YouTube Shorts and TikTok content. 
-    
-A Valorant content creator has this clip: "${description}"
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
+      temperature: 0.9,
+      max_tokens: 1024,
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a viral gaming content expert specializing in Valorant YouTube Shorts and TikTok. You always respond with valid JSON only — no markdown, no explanation, no code blocks.",
+        },
+        {
+          role: "user",
+          content: `A Valorant content creator has this clip: "${description}"
 Clip type: ${clipTypeLabel}
 
-Generate viral content in EXACTLY this JSON format (no markdown, no extra text, just valid JSON):
+Generate viral content in EXACTLY this JSON format:
 
 {
   "titles": [
@@ -61,51 +69,42 @@ Generate viral content in EXACTLY this JSON format (no markdown, no extra text, 
     "caption 3 with emojis and call to action"
   ],
   "hashtags": [
-    "#valorant",
-    "#valorantclips",
-    "#valoranthighlights",
-    "#vct",
-    "#shorts",
-    "#gaming",
-    "#fyp",
-    "#valorantmontage",
-    "#gamingclips",
-    "#valorantedit"
+    "#valorant","#valorantclips","#valoranthighlights","#vct",
+    "#shorts","#gaming","#fyp","#valorantmontage","#gamingclips","#valorantedit"
   ],
   "thumbnailTexts": [
-    "THUMBNAIL TEXT 1 (short, bold, all caps, max 5 words)",
-    "THUMBNAIL TEXT 2 (short, bold, all caps, max 5 words)",
-    "THUMBNAIL TEXT 3 (short, bold, all caps, max 5 words)"
+    "THUMBNAIL TEXT 1",
+    "THUMBNAIL TEXT 2",
+    "THUMBNAIL TEXT 3"
   ],
   "animeHypeLines": [
-    "Anime-style dramatic hype line 1 (poetic, dramatic, like an anime narrator)",
-    "Anime-style dramatic hype line 2 (poetic, dramatic, like an anime narrator)"
+    "Anime-style dramatic hype line 1",
+    "Anime-style dramatic hype line 2"
   ]
 }
 
 Rules:
-- Titles must be click-bait but authentic, 6-12 words, include relevant emojis
-- Captions should be engaging, include emojis, end with a question or CTA
-- Hashtags must be real Valorant/gaming hashtags that get views
-- Thumbnail texts must be SHORT (2-5 words), ALL CAPS, shocking/dramatic
-- Anime hype lines must sound like epic anime narration, poetic and dramatic
-- Make everything feel VIRAL and optimized for the ${clipTypeLabel} clip type
-- Reference the specific clip details: "${description}"`;
+- Titles: click-bait but authentic, 6-12 words, include relevant emojis
+- Captions: engaging, emojis, end with a question or CTA
+- Hashtags: real Valorant/gaming hashtags that get views (exactly 10)
+- Thumbnail texts: SHORT (2-5 words), ALL CAPS, shocking/dramatic
+- Anime hype lines: epic anime narration, poetic and dramatic
+- Everything optimized for ${clipTypeLabel} clip type
+- Reference the specific clip: "${description}"`,
+        },
+      ],
+    });
 
-    const result = await model.generateContent(prompt);
-    const text = result.response.text();
+    const text = completion.choices[0]?.message?.content ?? "";
 
-    // Parse JSON from response
     let parsed;
     try {
-      // Strip any markdown code blocks if present
       const cleaned = text
         .replace(/```json\n?/g, "")
         .replace(/```\n?/g, "")
         .trim();
       parsed = JSON.parse(cleaned);
     } catch {
-      // Try to extract JSON from the text
       const jsonMatch = text.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
         parsed = JSON.parse(jsonMatch[0]);
