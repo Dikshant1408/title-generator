@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -72,17 +71,22 @@ export default function RootLayout({
         <link rel="canonical" href="https://valorantviral.vercel.app" />
         <meta name="theme-color" content="#050508" />
         <link rel="icon" href="/favicon.ico" />
+
+        {/* ── Google AdSense verification + Auto Ads ── */}
+        {/* This script in <head> is what Google crawls to verify site ownership */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5851997796287592"
+          crossOrigin="anonymous"
+        />
+
+        {/* AdSense site verification meta tag */}
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-5851997796287592"
+        />
       </head>
       <body className={`${inter.className} animated-bg min-h-screen`}>
-        {/* Google AdSense — only loads when publisher ID is set */}
-        {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
-          <Script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        )}
         {children}
       </body>
     </html>

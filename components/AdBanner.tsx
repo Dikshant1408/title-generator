@@ -2,12 +2,27 @@
 
 import { useEffect, useRef } from "react";
 
+/* ── Map slot name → env var value ─────────────────────── */
+const SLOT_MAP: Record<string, string | undefined> = {
+  LEFT_SIDEBAR_SLOT:          process.env.NEXT_PUBLIC_AD_SLOT_LEFT_SIDEBAR,
+  RIGHT_SIDEBAR_SLOT:         process.env.NEXT_PUBLIC_AD_SLOT_RIGHT_SIDEBAR,
+  RIGHT_SIDEBAR_SQUARE_SLOT:  process.env.NEXT_PUBLIC_AD_SLOT_RIGHT_SIDEBAR_SQUARE,
+  TOP_LEADERBOARD_SLOT:       process.env.NEXT_PUBLIC_AD_SLOT_TOP_LEADERBOARD,
+  AFTER_GENERATOR_SLOT:       process.env.NEXT_PUBLIC_AD_SLOT_AFTER_GENERATOR,
+  AFTER_TAGS_SLOT:            process.env.NEXT_PUBLIC_AD_SLOT_AFTER_TAGS,
+  MID_PAGE_SLOT:              process.env.NEXT_PUBLIC_AD_SLOT_MID_PAGE,
+  PRE_FAQ_SLOT:               process.env.NEXT_PUBLIC_AD_SLOT_PRE_FAQ,
+  BOTTOM_LEADERBOARD_SLOT:    process.env.NEXT_PUBLIC_AD_SLOT_BOTTOM_LEADERBOARD,
+  RESULTS_INLINE_TOP_SLOT:    process.env.NEXT_PUBLIC_AD_SLOT_RESULTS_TOP,
+  RESULTS_INLINE_MID_SLOT:    process.env.NEXT_PUBLIC_AD_SLOT_RESULTS_MID,
+  RESULTS_INLINE_BOTTOM_SLOT: process.env.NEXT_PUBLIC_AD_SLOT_RESULTS_BOTTOM,
+};
+
 interface AdBannerProps {
   slot: string;
   format?: "auto" | "rectangle" | "horizontal" | "vertical" | "fluid";
   className?: string;
   label?: string;
-  /** Show a visible placeholder in dev mode (default true) */
   showDevPlaceholder?: boolean;
 }
 
@@ -27,24 +42,26 @@ export default function AdBanner({
   const insRef = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
 
-  const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID;
+  const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "ca-pub-5851997796287592";
+  const resolvedSlot = SLOT_MAP[slot] ?? slot; // fall back to raw value if not in map
   const isDev = process.env.NODE_ENV === "development";
+  const isReady = !!publisherId && !!resolvedSlot;
 
   useEffect(() => {
-    if (!publisherId || pushed.current || !insRef.current) return;
+    if (!isReady || pushed.current || !insRef.current) return;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       pushed.current = true;
     } catch {
-      // AdSense script not yet loaded — will retry on next render
+      // script not yet loaded
     }
-  }, [publisherId]);
+  }, [isReady]);
 
-  /* ── Dev / no-publisher placeholder ── */
-  if (isDev || !publisherId) {
+  /* ── Placeholder (dev mode or missing config) ── */
+  if (!isReady) {
     if (!showDevPlaceholder) return null;
     const heightClass =
-      format === "horizontal" ? "min-h-[90px]" :
+      format === "horizontal" ? "min-h-[90px]"  :
       format === "vertical"   ? "min-h-[600px]" :
       format === "rectangle"  ? "min-h-[250px]" :
                                 "min-h-[90px]";
@@ -56,9 +73,9 @@ export default function AdBanner({
         <span className="text-[10px] uppercase tracking-widest text-slate-700 font-semibold">
           {label}
         </span>
-        <span className="text-[10px] text-slate-800">
-          {format} · slot {slot}
-        </span>
+        {isDev && (
+          <span className="text-[9px] text-slate-800">{format} · {slot}</span>
+        )}
       </div>
     );
   }
@@ -74,7 +91,7 @@ export default function AdBanner({
         className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client={publisherId}
-        data-ad-slot={slot}
+        data-ad-slot={resolvedSlot}
         data-ad-format={format}
         data-full-width-responsive="true"
       />
