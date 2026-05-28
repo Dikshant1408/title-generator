@@ -91,7 +91,7 @@ export default function Footer() {
             Built with <Heart className="w-3.5 h-3.5 text-pink-500 fill-current" /> for Valorant creators
           </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-purple-400 transition-colors">Privacy</a>
+            <a href="/privacy" className="hover:text-purple-400 transition-colors">Privacy</a>
             <a href="#" className="hover:text-purple-400 transition-colors">Terms</a>
           </div>
         </div>
