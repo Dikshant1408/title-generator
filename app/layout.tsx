@@ -5,6 +5,8 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const SITE_URL = "https://valorant-viral-generator.vercel.app";
+
 export const metadata: Metadata = {
   title: "ValorantViral – AI Viral Title & Hashtag Generator for Valorant Creators",
   description:
@@ -26,14 +28,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://valorantviral.vercel.app",
+    url: SITE_URL,
     title: "ValorantViral – AI Viral Title & Hashtag Generator",
     description:
       "Turn your Valorant clips into viral Shorts. Generate titles, captions, hashtags & more with AI.",
     siteName: "ValorantViral",
     images: [
       {
-        url: "/og-image.png",
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "ValorantViral – AI Content Generator",
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
     title: "ValorantViral – AI Viral Title & Hashtag Generator",
     description:
       "Turn your Valorant clips into viral Shorts. Free AI tool for creators.",
-    images: ["/og-image.png"],
+    images: [`${SITE_URL}/og-image.png`],
   },
   robots: {
     index: true,
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  metadataBase: new URL("https://valorantviral.vercel.app"),
+  metadataBase: new URL(SITE_URL),
 };
 
 export default function RootLayout({
@@ -69,18 +71,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="canonical" href="https://valorantviral.vercel.app" />
+        <link rel="canonical" href={SITE_URL} />
         <meta name="theme-color" content="#050508" />
         <link rel="icon" href="/favicon.ico" />
         {/* Google AdSense ownership verification */}
         <meta name="google-adsense-account" content="ca-pub-5851997796287592" />
-        {/* Google Search Console / AdSense site verification */}
+        {/* Google Search Console verification */}
         <meta name="google-site-verification" content="VbOud-rNqUMkcxFbAo5MAilwSmfScxu3ro_2z63BxUw" />
       </head>
       <body className={`${inter.className} animated-bg min-h-screen`}>
         {children}
 
-        {/* Google AdSense — loads after page is interactive */}
+        {/* Google AdSense script */}
         <Script
           id="adsense-init"
           async
@@ -89,7 +91,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
-        {/* Auto Ads — tells AdSense to automatically place ads on the page */}
+        {/* Auto Ads */}
         <Script id="adsense-auto" strategy="afterInteractive">
           {`
             (adsbygoogle = window.adsbygoogle || []).push({

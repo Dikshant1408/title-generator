@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://valorantviral.vercel.app";
+  const baseUrl = "https://valorant-viral-generator.vercel.app";
 
   return [
     {

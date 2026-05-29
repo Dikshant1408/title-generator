@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://valorantviral.vercel.app/sitemap.xml",
+    sitemap: "https://valorant-viral-generator.vercel.app/sitemap.xml",
   };
 }
