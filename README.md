@@ -2,6 +2,8 @@
 
 > Turn your Valorant clips into viral YouTube Shorts, TikTok, and Reels content — powered by AI.
 
+### 🌐 Live Site: [valorant-viral-generator.vercel.app](https://valorant-viral-generator.vercel.app)
+
 ![ValorantViral](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8?style=flat-square&logo=tailwindcss)
 ![Gemini AI](https://img.shields.io/badge/Gemini-AI-4285F4?style=flat-square&logo=google)
