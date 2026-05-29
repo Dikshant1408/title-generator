@@ -163,7 +163,12 @@ export default function PrivacyPage() {
               <h2 className="text-lg font-bold text-white mb-3">10. Contact Us</h2>
               <p>
                 If you have any questions about this Privacy Policy, please contact us at{" "}
-                <span className="text-purple-400">valorantviral@gmail.com</span>.
+                <a
+                  href="mailto:godrikt1408@gmail.com"
+                  className="text-purple-400 hover:text-purple-300 underline"
+                >
+                  godrikt1408@gmail.com
+                </a>.
               </p>
             </section>
 
