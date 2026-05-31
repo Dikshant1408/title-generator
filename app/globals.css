@@ -73,7 +73,12 @@ body {
   border-radius: 16px;
 }
 
-/* Animated gradient background */
+/* Static dark background — replaces animated-bg to fix CLS */
+.page-bg {
+  background: #050508;
+}
+
+/* Animated gradient background — only used on elements, not body */
 .animated-bg {
   background: linear-gradient(
     135deg,
@@ -85,6 +90,8 @@ body {
   );
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
+  /* Use will-change to promote to compositor layer, avoiding CLS */
+  will-change: background-position;
 }
 
 @keyframes gradientShift {
@@ -283,6 +290,18 @@ body {
   filter: blur(80px);
   position: absolute;
   pointer-events: none;
+}
+
+/* Ad slot min-heights to prevent layout shift when ads load */
+.adsbygoogle[data-ad-format="horizontal"],
+.adsbygoogle[data-ad-format="auto"] {
+  min-height: 90px;
+}
+.adsbygoogle[data-ad-format="rectangle"] {
+  min-height: 250px;
+}
+.adsbygoogle[data-ad-format="vertical"] {
+  min-height: 600px;
 }
 
 /* Mobile responsive tweaks */

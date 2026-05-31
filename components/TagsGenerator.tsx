@@ -360,9 +360,9 @@ export default function TagsGenerator() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             {/* Agent */}
             <div>
-              <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Agent</label>
+              <label htmlFor="agent-select" className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Agent</label>
               <div className="relative">
-                <select value={agent} onChange={e => setAgent(e.target.value)} className="neon-select w-full rounded-xl px-3 py-2.5 text-sm pr-8">
+                <select id="agent-select" value={agent} onChange={e => setAgent(e.target.value)} className="neon-select w-full rounded-xl px-3 py-2.5 text-sm pr-8" aria-label="Select agent">
                   <option value="">Any agent</option>
                   {AGENTS.map(a => <option key={a} value={a}>{a}</option>)}
                 </select>
@@ -372,9 +372,9 @@ export default function TagsGenerator() {
 
             {/* Map */}
             <div>
-              <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Map</label>
+              <label htmlFor="map-select" className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Map</label>
               <div className="relative">
-                <select value={map} onChange={e => setMap(e.target.value)} className="neon-select w-full rounded-xl px-3 py-2.5 text-sm pr-8">
+                <select id="map-select" value={map} onChange={e => setMap(e.target.value)} className="neon-select w-full rounded-xl px-3 py-2.5 text-sm pr-8" aria-label="Select map">
                   <option value="">Any map</option>
                   {MAPS.map(m => <option key={m} value={m}>{m}</option>)}
                 </select>
@@ -384,9 +384,9 @@ export default function TagsGenerator() {
 
             {/* Rank */}
             <div>
-              <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Rank</label>
+              <label htmlFor="rank-select" className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Rank</label>
               <div className="relative">
-                <select value={rank} onChange={e => setRank(e.target.value)} className="neon-select w-full rounded-xl px-3 py-2.5 text-sm pr-8">
+                <select id="rank-select" value={rank} onChange={e => setRank(e.target.value)} className="neon-select w-full rounded-xl px-3 py-2.5 text-sm pr-8" aria-label="Select rank">
                   <option value="">Any rank</option>
                   {RANKS.map(r => <option key={r} value={r}>{r}</option>)}
                 </select>

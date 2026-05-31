@@ -169,14 +169,16 @@ export default function GeneratorSection() {
 
           {/* Clip type dropdown */}
           <div className="mb-6">
-            <label className="block text-sm font-semibold text-slate-300 mb-2">
+            <label htmlFor="clip-type" className="block text-sm font-semibold text-slate-300 mb-2">
               Clip type
             </label>
             <div className="relative">
               <select
+                id="clip-type"
                 value={clipType}
                 onChange={(e) => setClipType(e.target.value)}
                 className="neon-select w-full rounded-xl px-4 py-3 text-sm sm:text-base pr-10"
+                aria-label="Select clip type"
               >
                 {CLIP_TYPES.map((ct) => (
                   <option key={ct.value} value={ct.value}>

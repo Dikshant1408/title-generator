@@ -3,7 +3,10 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap", // fix font CLS
+});
 
 const SITE_URL = "https://valorant-viral-generator.vercel.app";
 
@@ -74,30 +77,38 @@ export default function RootLayout({
         <link rel="canonical" href={SITE_URL} />
         <meta name="theme-color" content="#050508" />
         <link rel="icon" href="/favicon.ico" />
-        {/* Google AdSense ownership verification */}
+
+        {/* Preconnect to AdSense origins — saves ~300ms LCP */}
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+        <link rel="preconnect" href="https://fundingchoicesmessages.google.com" />
+
+        {/* Google AdSense verification */}
         <meta name="google-adsense-account" content="ca-pub-5851997796287592" />
         {/* Google Search Console verification */}
         <meta name="google-site-verification" content="VbOud-rNqUMkcxFbAo5MAilwSmfScxu3ro_2z63BxUw" />
       </head>
-      <body className={`${inter.className} animated-bg min-h-screen`}>
+      <body className={`${inter.className} page-bg min-h-screen`}>
         {children}
 
-        {/* Google AdSense script */}
+        {/* Google AdSense — loaded after interactive, non-blocking */}
         <Script
-          id="adsense-init"
+          id="adsense-script"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5851997796287592"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
 
-        {/* Auto Ads */}
+        {/* Auto Ads — single push, no duplicate enable_page_level_ads */}
         <Script id="adsense-auto" strategy="afterInteractive">
           {`
-            (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-5851997796287592",
-              enable_page_level_ads: true
-            });
+            try {
+              (window.adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-5851997796287592",
+                enable_page_level_ads: true
+              });
+            } catch(e) {}
           `}
         </Script>
       </body>
