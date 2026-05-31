@@ -1,31 +1,45 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Enable React strict mode for better development experience
   reactStrictMode: true,
-
-  // Compress responses
   compress: true,
+
+  // Optimize bundle — target modern browsers only
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion"],
+  },
 
   // Image optimization
   images: {
     formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 86400,
   },
 
-  // Security headers
+  // Security + caching headers
   async headers() {
     return [
       {
         source: "/(.*)",
         headers: [
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-Frame-Options", value: "DENY" },
-          { key: "X-XSS-Protection", value: "1; mode=block" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
-          },
+          { key: "X-Content-Type-Options",  value: "nosniff" },
+          { key: "X-Frame-Options",          value: "SAMEORIGIN" }, // changed from DENY so AdSense iframes work
+          { key: "X-XSS-Protection",         value: "1; mode=block" },
+          { key: "Referrer-Policy",          value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy",       value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+      // Cache static assets aggressively
+      {
+        source: "/_next/static/(.*)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      // Cache fonts
+      {
+        source: "/fonts/(.*)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
     ];

@@ -8,41 +8,45 @@ interface StickyAdSidebarProps {
 }
 
 export default function StickyAdSidebar({ side }: StickyAdSidebarProps) {
-  const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isWide, setIsWide] = useState(false);
 
-  // Fade in after mount so it doesn't flash on SSR
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 300);
-    return () => clearTimeout(t);
+    setMounted(true);
+    // Only render ad ins tags when viewport is actually xl (1280px+)
+    // This prevents the "No slot size for availableWidth=0" AdSense error
+    const mq = window.matchMedia("(min-width: 1280px)");
+    setIsWide(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsWide(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
 
   const posClass = side === "left" ? "left-0" : "right-0";
 
+  // Don't render anything on server or narrow screens
+  if (!mounted || !isWide) return null;
+
   return (
     <div
       className={`fixed top-0 ${posClass} h-full z-40 pointer-events-none
-        hidden xl:flex flex-col items-center justify-center gap-4
-        transition-opacity duration-500 ${visible ? "opacity-100" : "opacity-0"}`}
+        flex flex-col items-center justify-center gap-4`}
       style={{ width: "160px" }}
+      aria-hidden="true"
     >
-      {/* Wrapper re-enables pointer events only on the ad units */}
       <div className="pointer-events-auto flex flex-col gap-4 items-center">
-        {/* Primary tall ad */}
         <AdBanner
           slot={side === "left" ? "LEFT_SIDEBAR_SLOT" : "RIGHT_SIDEBAR_SLOT"}
           format="vertical"
           className="w-[160px]"
           label="Ad"
         />
-
-        {/* Secondary square ad — right side only */}
         {side === "right" && (
           <AdBanner
             slot="RIGHT_SIDEBAR_SQUARE_SLOT"
             format="rectangle"
             className="w-[160px]"
             label="Ad"
-            showDevPlaceholder={true}
           />
         )}
       </div>

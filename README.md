@@ -2,12 +2,14 @@
 
 > Turn your Valorant clips into viral YouTube Shorts, TikTok, and Reels content — powered by AI.
 
-### 🌐 Live Site: [valorant-viral-generator.vercel.app](https://valorant-viral-generator.vercel.app)
+### 🌐 **Live Site: [valorant-viral-generator.vercel.app](https://valorant-viral-generator.vercel.app)**
 
-![ValorantViral](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8?style=flat-square&logo=tailwindcss)
-![Gemini AI](https://img.shields.io/badge/Gemini-AI-4285F4?style=flat-square&logo=google)
-![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=flat-square&logo=vercel)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-purple?style=for-the-badge&logo=vercel)](https://valorant-viral-generator.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+[![Groq AI](https://img.shields.io/badge/Groq-Llama_3.3-orange?style=flat-square)](https://groq.com)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=flat-square&logo=vercel)](https://vercel.com)
 
 ---
 
@@ -15,11 +17,14 @@
 
 Paste a short description of your Valorant clip and instantly get:
 
-- **5 Viral Titles** — YouTube Shorts & TikTok optimized
-- **3 Captions** — With emojis and CTAs for TikTok/Reels
-- **10 Hashtags** — Real tags that get views
-- **3 Thumbnail Texts** — Bold, ALL CAPS, scroll-stopping
-- **2 Anime Hype Lines** — Dramatic cinematic narration
+| Output | Description |
+|---|---|
+| **5 Viral Titles** | YouTube Shorts & TikTok optimized |
+| **3 Captions** | With emojis and CTAs for TikTok/Reels |
+| **10 Hashtags** | Real tags that get views |
+| **3 Thumbnail Texts** | Bold, ALL CAPS, scroll-stopping |
+| **2 Anime Hype Lines** | Dramatic cinematic narration |
+| **Tags Generator** | Platform-specific sets for YouTube, TikTok, Instagram, Twitter |
 
 ---
 
@@ -28,8 +33,8 @@ Paste a short description of your Valorant clip and instantly get:
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/yourusername/valorant-viral-generator
-cd valorant-viral-generator
+git clone https://github.com/Dikshant1408/title-generator
+cd title-generator
 npm install
 ```
 
@@ -39,13 +44,20 @@ npm install
 cp .env.example .env.local
 ```
 
-Edit `.env.local` and add your Gemini API key:
+Edit `.env.local`:
 
 ```env
-GEMINI_API_KEY=your_gemini_api_key_here
+# Required
+GROQ_API_KEY=your_groq_api_key_here
+
+# Optional — for analytics
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+
+# Optional — for AdSense
+NEXT_PUBLIC_ADSENSE_PUBLISHER_ID=ca-pub-XXXXXXXXXXXXXXXXX
 ```
 
-**Get a free Gemini API key:** https://aistudio.google.com/app/apikey
+**Get a free Groq API key:** https://console.groq.com/keys
 
 ### 3. Run Development Server
 
@@ -59,54 +71,18 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## 🌐 Deploy to Vercel (Free)
 
-### Option A: One-Click Deploy
+### One-Click Deploy
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/valorant-viral-generator)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Dikshant1408/title-generator)
 
-### Option B: Manual Deploy
+### Manual Deploy
 
 ```bash
-npm install -g vercel
-vercel
+npx vercel --prod
 ```
 
-**Add environment variables in Vercel dashboard:**
-- `GEMINI_API_KEY` → Your Gemini API key
-- `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` → (Optional) Your AdSense publisher ID
-
----
-
-## 💰 Monetization Setup (Google AdSense)
-
-1. Apply for Google AdSense at https://adsense.google.com
-2. Get your Publisher ID (format: `ca-pub-XXXXXXXXXXXXXXXXX`)
-3. Add to `.env.local`:
-   ```env
-   NEXT_PUBLIC_ADSENSE_PUBLISHER_ID=ca-pub-XXXXXXXXXXXXXXXXX
-   ```
-4. Add the AdSense script to `app/layout.tsx`:
-   ```tsx
-   <Script
-     async
-     src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
-     crossOrigin="anonymous"
-     strategy="afterInteractive"
-   />
-   ```
-
----
-
-## 🛠 Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 15 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS v4 |
-| Animations | Framer Motion |
-| AI | Google Gemini 1.5 Flash |
-| Icons | Lucide React |
-| Hosting | Vercel (free tier) |
+**Required environment variable in Vercel dashboard:**
+- `GROQ_API_KEY` → Your Groq API key
 
 ---
 
@@ -116,29 +92,43 @@ vercel
 valorant-viral-generator/
 ├── app/
 │   ├── api/
-│   │   └── generate/
-│   │       └── route.ts        # Gemini AI API endpoint
-│   ├── globals.css             # Global styles + neon/glass effects
-│   ├── layout.tsx              # Root layout + SEO metadata
-│   ├── page.tsx                # Main page assembly
-│   ├── sitemap.ts              # Auto-generated sitemap
-│   └── robots.ts               # SEO robots.txt
+│   │   ├── generate/route.ts       # AI content generation (Groq)
+│   │   └── tags/route.ts           # AI tags generation (Groq)
+│   ├── about/page.tsx              # About page
+│   ├── contact/page.tsx            # Contact page
+│   ├── privacy/page.tsx            # Privacy Policy (AdSense compliant)
+│   ├── terms/page.tsx              # Terms of Service
+│   ├── valorant-shorts-titles/     # SEO landing page
+│   ├── valorant-hashtags/          # SEO landing page
+│   ├── valorant-captions/          # SEO landing page
+│   ├── valorant-thumbnail-text/    # SEO landing page
+│   ├── valorant-youtube-shorts/    # SEO landing page
+│   ├── globals.css                 # Global styles + neon/glass effects
+│   ├── layout.tsx                  # Root layout + SEO + AdSense
+│   ├── page.tsx                    # Main page (lazy-loaded sections)
+│   ├── sitemap.ts                  # Auto-generated sitemap (15 URLs)
+│   └── robots.ts                   # SEO robots.txt
 ├── components/
-│   ├── ParticleBackground.tsx  # Animated particle canvas
-│   ├── Navbar.tsx              # Fixed navigation
-│   ├── HeroSection.tsx         # Landing hero
-│   ├── GeneratorSection.tsx    # Main AI generator UI
-│   ├── OutputCards.tsx         # Generated content display
-│   ├── ExamplesSection.tsx     # Example outputs
-│   ├── FeaturesSection.tsx     # Feature highlights
-│   ├── TrendingTemplates.tsx   # Copyable title templates
-│   ├── SEOSections.tsx         # SEO content sections
-│   ├── FAQSection.tsx          # FAQ accordion
-│   ├── AdBanner.tsx            # Google AdSense integration
-│   └── Footer.tsx              # Site footer
-├── .env.local                  # Your environment variables
-├── .env.example                # Template for env vars
-└── next.config.ts              # Next.js configuration
+│   ├── Analytics.tsx               # Google Analytics 4 + event tracking
+│   ├── AdBanner.tsx                # AdSense ad unit component
+│   ├── ClientOnlyComponents.tsx    # SSR-safe dynamic imports
+│   ├── StickyAdSidebar.tsx         # Fixed sidebar ads (xl screens only)
+│   ├── ParticleBackground.tsx      # Optimized canvas particles
+│   ├── HeroSection.tsx             # CSS-animated hero (no Framer on LCP)
+│   ├── GeneratorSection.tsx        # Main AI generator UI
+│   ├── OutputCards.tsx             # Generated content display + tracking
+│   ├── TagsGenerator.tsx           # Platform-specific tags generator
+│   ├── ExamplesSection.tsx         # Example outputs
+│   ├── FeaturesSection.tsx         # Feature highlights
+│   ├── TrendingTemplates.tsx       # Copyable title templates
+│   ├── SEOSections.tsx             # SEO content sections
+│   ├── FAQSection.tsx              # FAQ accordion
+│   ├── Navbar.tsx                  # Fixed navigation
+│   └── Footer.tsx                  # Site footer with all links
+├── public/
+│   └── ads.txt                     # AdSense publisher verification
+├── .env.local                      # Your environment variables
+└── next.config.ts                  # Next.js + caching configuration
 ```
 
 ---
@@ -146,26 +136,70 @@ valorant-viral-generator/
 ## 🎨 Design System
 
 - **Theme:** Dark mode only, cyberpunk gaming aesthetic
-- **Colors:** Neon purple (#a855f7), Blue (#3b82f6), Cyan (#06b6d4), Pink (#ec4899)
-- **Effects:** Glassmorphism cards, neon borders, particle background, animated gradients
-- **Typography:** Inter font, bold headings, gradient text
+- **Colors:** Neon purple `#a855f7`, Blue `#3b82f6`, Cyan `#06b6d4`, Pink `#ec4899`
+- **Effects:** Glassmorphism cards, neon borders, particle background, CSS animations
+- **Performance:** CSS animations on LCP path (no Framer Motion blocking), lazy-loaded below-fold components
 
 ---
 
-## 📈 SEO Features
+## 🛠 Tech Stack
 
-- Full OpenGraph + Twitter Card metadata
-- Auto-generated `sitemap.xml`
-- `robots.txt` configuration
-- Semantic HTML structure
-- Fast loading (Edge runtime for API)
-- Mobile-first responsive design
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS v4 |
+| Animations | Framer Motion + CSS |
+| AI | Groq (Llama 3.3 70B) |
+| Icons | Lucide React |
+| Analytics | Google Analytics 4 |
+| Ads | Google AdSense |
+| Hosting | Vercel (free tier) |
+
+---
+
+## 📈 SEO Pages
+
+| Page | Target Keywords |
+|---|---|
+| `/valorant-shorts-titles` | valorant shorts titles, viral valorant titles |
+| `/valorant-hashtags` | valorant hashtag generator, valorant tiktok hashtags |
+| `/valorant-captions` | valorant captions, valorant tiktok captions |
+| `/valorant-thumbnail-text` | valorant thumbnail text, gaming thumbnail generator |
+| `/valorant-youtube-shorts` | valorant youtube shorts, how to grow valorant channel |
+
+---
+
+## 💰 Monetization
+
+AdSense is integrated with:
+- 2 sticky sidebar ads (left + right, desktop only)
+- 6 inline page ads
+- 3 inline result ads (shown when content is generated)
+
+To activate: add `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` and ad slot IDs to Vercel environment variables.
+
+---
+
+## 📊 Analytics Events Tracked
+
+| Event | Trigger |
+|---|---|
+| `generate_content` | User clicks Generate |
+| `copy_title` | User copies a title |
+| `copy_caption` | User copies a caption |
+| `copy_hashtags` | User copies hashtags |
+| `copy_thumbnail` | User copies thumbnail text |
+| `copy_anime` | User copies anime hype line |
+| `copy_all` | User copies all of a section |
+| `share` | User clicks Share |
+| `generate_tags` | User generates tags |
 
 ---
 
 ## ⚠️ Disclaimer
 
-VALORANT is a trademark of Riot Games. ValorantViral is an independent fan tool and is not endorsed by or affiliated with Riot Games.
+VALORANT is a trademark of Riot Games. ValorantViral is an independent fan tool and is not affiliated with or endorsed by Riot Games.
 
 ---
 

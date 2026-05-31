@@ -83,7 +83,7 @@ export default function AdBanner({
   /* ── Real AdSense unit ── */
   return (
     <div className={`overflow-hidden text-center ${className}`}>
-      <p className="text-[10px] text-slate-700 mb-1 uppercase tracking-widest">
+      <p className="text-[10px] text-slate-600 mb-1 uppercase tracking-widest">
         {label}
       </p>
       <ins

@@ -2,17 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Copy,
-  Check,
-  TrendingUp,
-  MessageSquare,
-  Hash,
-  Image,
-  Sparkles,
-  Share2,
-} from "lucide-react";
+import { Copy, Check, TrendingUp, MessageSquare, Hash, Image, Sparkles, Share2 } from "lucide-react";
 import AdBanner from "./AdBanner";
+import { track } from "./Analytics";
 import type { GeneratedContent } from "./GeneratorSection";
 
 /* ─── Copy helpers ─────────────────────────────────────── */
@@ -21,6 +13,11 @@ function CopyButton({ text, id }: { text: string; id: string }) {
   const handleCopy = async () => {
     await navigator.clipboard.writeText(text);
     setCopied(true);
+    // Track copy events by type
+    if (id.startsWith("title-")) track.copyTitle(parseInt(id.split("-")[1]));
+    else if (id.startsWith("caption-")) track.copyCaption(parseInt(id.split("-")[1]));
+    else if (id.startsWith("thumb-")) track.copyThumbnail(parseInt(id.split("-")[1]));
+    else if (id.startsWith("anime-")) track.copyAnime(parseInt(id.split("-")[1]));
     setTimeout(() => setCopied(false), 2000);
   };
   return (
@@ -38,6 +35,7 @@ function CopyAllButton({ text, label }: { text: string; label: string }) {
   const [copied, setCopied] = useState(false);
   const handleCopy = async () => {
     await navigator.clipboard.writeText(text);
+    track.copyAll(label);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -69,6 +67,7 @@ export default function OutputCards({ content }: { content: GeneratedContent }) 
   const [shareMsg, setShareMsg] = useState("");
 
   const handleShare = async () => {
+    track.share();
     const shareText = `Check out these viral Valorant titles I generated!\n\n${content.titles[0]}\n\nGenerated at ValorantViral.vercel.app`;
     if (navigator.share) {
       await navigator.share({ title: "ValorantViral", text: shareText });
@@ -221,7 +220,7 @@ export default function OutputCards({ content }: { content: GeneratedContent }) 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 + i * 0.05 }}
-              onClick={() => navigator.clipboard.writeText(tag)}
+              onClick={() => { navigator.clipboard.writeText(tag); track.copyHashtags(); }}
               className="hashtag-pill"
               title="Click to copy"
             >

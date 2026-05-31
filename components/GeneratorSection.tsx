@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, RefreshCw, ChevronDown } from "lucide-react";
 import OutputCards from "./OutputCards";
+import { track } from "./Analytics";
 
 const CLIP_TYPES = [
   { value: "ace", label: "⚡ ACE – 5 Kill Round" },
@@ -67,6 +68,7 @@ export default function GeneratorSection() {
       }
 
       setResult(data.data);
+      track.generate(clipType);
 
       // Scroll to results
       setTimeout(() => {
