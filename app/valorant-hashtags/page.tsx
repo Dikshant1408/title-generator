@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Valorant Hashtag Generator – Best Hashtags for TikTok, YouTube & Instagram",
   description: "Generate the best Valorant hashtags for TikTok, YouTube Shorts, and Instagram Reels. AI-optimized hashtag sets that actually get views. Free Valorant hashtag generator.",
   keywords: ["valorant hashtags", "valorant hashtag generator", "valorant tiktok hashtags", "valorant youtube hashtags", "best valorant hashtags 2024"],
+  alternates: { canonical: `${SITE_URL}/valorant-hashtags` },
   openGraph: {
     title: "Valorant Hashtag Generator – Best Hashtags for Every Platform",
     description: "Generate optimized Valorant hashtags for TikTok, YouTube, and Instagram. Free AI tool.",

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Valorant Thumbnail Text Generator – Bold Text for Viral Thumbnails",
   description: "Generate bold, ALL CAPS thumbnail text for your Valorant YouTube videos. AI-powered thumbnail text that stops the scroll and drives clicks. Free tool.",
   keywords: ["valorant thumbnail text", "valorant thumbnail generator", "youtube thumbnail text valorant", "valorant thumbnail ideas", "gaming thumbnail text"],
+  alternates: { canonical: `${SITE_URL}/valorant-thumbnail-text` },
   openGraph: {
     title: "Valorant Thumbnail Text Generator – Bold Text for Viral Thumbnails",
     description: "Generate bold thumbnail text for Valorant YouTube videos. Free AI tool.",

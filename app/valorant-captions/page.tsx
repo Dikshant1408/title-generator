@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Valorant Captions Generator – Viral TikTok & Reels Captions for Clips",
   description: "Generate viral Valorant captions for TikTok, Instagram Reels, and YouTube Shorts. AI-powered captions with emojis and CTAs that drive engagement. Free tool.",
   keywords: ["valorant captions", "valorant tiktok captions", "valorant reels captions", "valorant clip captions", "viral valorant captions"],
+  alternates: { canonical: `${SITE_URL}/valorant-captions` },
   openGraph: {
     title: "Valorant Captions Generator – Viral TikTok & Reels Captions",
     description: "Generate viral Valorant captions for TikTok, Reels, and Shorts. Free AI tool.",

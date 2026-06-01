@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Contact – ValorantViral",
   description: "Get in touch with ValorantViral. Send feedback, report bugs, or ask about creator partnerships.",
   openGraph: { title: "Contact ValorantViral", url: `${SITE_URL}/contact` },
+  alternates: { canonical: `${SITE_URL}/contact` },
 };
 
 const TOPICS = [

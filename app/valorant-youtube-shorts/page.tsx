@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Valorant YouTube Shorts Guide – How to Go Viral in 2024",
   description: "Complete guide to growing your Valorant YouTube Shorts channel. Learn titles, hashtags, thumbnails, posting times, and AI tools to go viral. Free guide.",
   keywords: ["valorant youtube shorts", "valorant shorts guide", "how to grow valorant channel", "valorant youtube tips", "valorant shorts viral"],
+  alternates: { canonical: `${SITE_URL}/valorant-youtube-shorts` },
   openGraph: {
     title: "Valorant YouTube Shorts Guide – How to Go Viral in 2024",
     description: "Complete guide to growing your Valorant YouTube Shorts channel.",

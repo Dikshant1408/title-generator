@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     description: "Turn your Valorant clips into viral Shorts. Free AI tool for creators.",
     images: [`${SITE_URL}/og-image.png`],
   },
+  alternates: {
+    canonical: SITE_URL,
+  },
   robots: {
     index: true, follow: true,
     googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },
@@ -48,7 +51,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="canonical" href={SITE_URL} />
         <meta name="theme-color" content="#050508" />
         <link rel="icon" href="/favicon.ico" />
         {/* Preconnect to AdSense origins for faster ad loading */}

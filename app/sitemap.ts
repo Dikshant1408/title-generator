@@ -15,8 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/valorant-captions`,             lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
     { url: `${BASE}/valorant-thumbnail-text`,       lastModified: new Date(), changeFrequency: "weekly",  priority: 0.8 },
     { url: `${BASE}/valorant-youtube-shorts`,       lastModified: new Date(), changeFrequency: "weekly",  priority: 0.8 },
-    // Hash anchors for in-page sections
-    { url: `${BASE}/#generator`,                    lastModified: new Date(), changeFrequency: "weekly",  priority: 0.9 },
-    { url: `${BASE}/#tags-generator`,               lastModified: new Date(), changeFrequency: "weekly",  priority: 0.8 },
+
   ];
 }

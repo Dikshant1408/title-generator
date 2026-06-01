@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy – ValorantViral",
   description: "Privacy Policy for ValorantViral. Learn how we collect, use, and protect your data, including our use of Google AdSense and cookies.",
   openGraph: { title: "Privacy Policy – ValorantViral", url: `${SITE_URL}/privacy` },
+  alternates: { canonical: `${SITE_URL}/privacy` },
 };
 
 export default function PrivacyPage() {

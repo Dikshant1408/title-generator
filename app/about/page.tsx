@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description: "The free AI tool built for Valorant content creators.",
     url: `${SITE_URL}/about`,
   },
+  alternates: { canonical: `${SITE_URL}/about` },
 };
 
 const FEATURES = [

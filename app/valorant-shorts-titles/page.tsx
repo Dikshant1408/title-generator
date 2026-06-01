@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Generate the best Valorant YouTube Shorts titles instantly. AI-powered viral title generator for Valorant clips — ACE, clutch, operator highlights and more. Free, no login.",
   keywords: ["valorant shorts titles", "valorant youtube titles", "viral valorant titles", "best valorant titles", "valorant clip titles generator"],
+  alternates: { canonical: `${SITE_URL}/valorant-shorts-titles` },
   openGraph: {
     title: "Valorant Shorts Titles Generator – Best Viral YouTube Titles",
     description: "Generate viral Valorant YouTube Shorts titles with AI. Free tool for content creators.",

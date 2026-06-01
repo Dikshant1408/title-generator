@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Terms of Service – ValorantViral",
   description: "Terms of Service for ValorantViral AI content generator. Read our acceptable use policy, disclaimers, and limitations of liability.",
   openGraph: { title: "Terms of Service – ValorantViral", url: `${SITE_URL}/terms` },
+  alternates: { canonical: `${SITE_URL}/terms` },
 };
 
 export default function TermsPage() {
