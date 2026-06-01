@@ -63,14 +63,14 @@ export default function ValorantHashtagsPage() {
     <main className="min-h-screen page-bg py-20 px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="max-w-4xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm mb-8 transition-colors">← Back to Home</Link>
+        <Link href="/" className="inline-flex items-center gap-2 text-[#FF8A94] hover:text-[#FF4655] text-sm mb-8 transition-colors">← Back to Home</Link>
 
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
             Valorant{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Hashtag Generator</span>
+            <span className="bg-gradient-to-r from-[#FF4655] to-[#FF6B7A] bg-clip-text text-transparent">Hashtag Generator</span>
           </h1>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-[#B5B5B5] text-lg max-w-2xl mx-auto">
             Generate platform-optimized hashtag sets for your Valorant clips. Tailored for YouTube, TikTok, Instagram, and Twitter.
           </p>
           <Link href="/#tags-generator" className="neon-btn inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl mt-6">
@@ -80,7 +80,7 @@ export default function ValorantHashtagsPage() {
 
         <div className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">Why Hashtags Matter for Valorant Content</h2>
-          <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
             <p>Hashtags are how platforms categorize and distribute your Valorant content. When you use #valorantclips on TikTok, your video gets added to that hashtag&apos;s feed — giving it exposure to everyone who follows or searches that tag. On YouTube Shorts, hashtags help the algorithm understand your content and recommend it to the right viewers.</p>
             <p>The key is using the right mix of hashtags. Too broad (#gaming alone) and you&apos;re competing with millions of videos. Too niche (#jettoperatorclutchonhaven) and nobody searches for it. The sweet spot is a combination of high-volume Valorant tags, medium-volume agent/map tags, and platform-specific viral tags.</p>
           </div>
@@ -96,7 +96,7 @@ export default function ValorantHashtagsPage() {
                 <div className="flex flex-wrap gap-2 mb-3">
                   {p.tags.map(t => <span key={t} className="hashtag-pill">{t}</span>)}
                 </div>
-                <p className="text-slate-500 text-xs">💡 {p.tip}</p>
+                <p className="text-[#B5B5B5]/50 text-xs">💡 {p.tip}</p>
               </div>
             ))}
           </div>
@@ -109,7 +109,7 @@ export default function ValorantHashtagsPage() {
             {FAQS.map((faq) => (
               <div key={faq.q} className="glass-card p-6">
                 <h3 className="font-bold text-white mb-2">{faq.q}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-[#B5B5B5] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

@@ -13,14 +13,14 @@ export default function TermsPage() {
   return (
     <main className="min-h-screen page-bg py-20 px-4">
       <div className="max-w-3xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm mb-8 transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-[#FF8A94] hover:text-[#FF4655] text-sm mb-8 transition-colors">
           ← Back to Home
         </Link>
         <div className="glass-card p-8 sm:p-12">
           <h1 className="text-3xl font-black text-white mb-2">Terms of Service</h1>
-          <p className="text-slate-500 text-sm mb-10">Last updated: {updated}</p>
+          <p className="text-[#B5B5B5]/50 text-sm mb-10">Last updated: {updated}</p>
 
-          <div className="space-y-8 text-slate-400 text-sm leading-relaxed">
+          <div className="space-y-8 text-[#B5B5B5] text-sm leading-relaxed">
 
             <section>
               <h2 className="text-lg font-bold text-white mb-3">1. Acceptance of Terms</h2>
@@ -88,13 +88,13 @@ export default function TermsPage() {
             <section>
               <h2 className="text-lg font-bold text-white mb-3">11. Contact</h2>
               <p>For questions about these Terms, contact us at{" "}
-                <a href="mailto:godrikt1408@gmail.com" className="text-purple-400 hover:text-purple-300 underline">godrikt1408@gmail.com</a>.
+                <a href="mailto:godrikt1408@gmail.com" className="text-[#FF8A94] hover:text-[#FF4655] underline">godrikt1408@gmail.com</a>.
               </p>
             </section>
 
           </div>
         </div>
-        <p className="text-center text-xs text-slate-700 mt-6">
+        <p className="text-center text-xs text-[#B5B5B5]/30 mt-6">
           VALORANT is a trademark of Riot Games. ValorantViral is not affiliated with Riot Games.
         </p>
       </div>

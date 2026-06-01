@@ -48,15 +48,15 @@ export default function ValorantYoutubeShortsPage() {
     <main className="min-h-screen page-bg py-20 px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="max-w-4xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm mb-8 transition-colors">← Back to Home</Link>
+        <Link href="/" className="inline-flex items-center gap-2 text-[#FF8A94] hover:text-[#FF4655] text-sm mb-8 transition-colors">← Back to Home</Link>
 
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
             Valorant{" "}
-            <span className="bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">YouTube Shorts</span>
+            <span className="bg-gradient-to-r from-[#FF4655] to-[#FF6B7A] bg-clip-text text-transparent">YouTube Shorts</span>
             {" "}Guide
           </h1>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-[#B5B5B5] text-lg max-w-2xl mx-auto">
             The complete guide to growing your Valorant YouTube Shorts channel — titles, thumbnails, hashtags, posting strategy, and AI tools.
           </p>
           <Link href="/#generator" className="neon-btn inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl mt-6">
@@ -66,7 +66,7 @@ export default function ValorantYoutubeShortsPage() {
 
         <div className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">Why YouTube Shorts for Valorant?</h2>
-          <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
             <p>YouTube Shorts is the fastest-growing format for gaming content in 2024. Valorant clips are perfectly suited for Shorts — they&apos;re action-packed, short, and have a built-in audience of millions of active players. Unlike long-form YouTube videos that require hours of editing, a Valorant Short can go from clip to posted in under 10 minutes.</p>
             <p>The YouTube Shorts algorithm is particularly generous to new creators. Unlike the main YouTube feed where established channels dominate, Shorts regularly pushes content from small channels to millions of viewers if the engagement metrics are strong. A single viral Valorant Short can add thousands of subscribers overnight.</p>
             <p>The key to success on Valorant Shorts is optimization — the right title, thumbnail, hashtags, and posting time can be the difference between 100 views and 100,000 views on the exact same clip. This guide covers everything you need to know.</p>
@@ -75,7 +75,7 @@ export default function ValorantYoutubeShortsPage() {
 
         <div className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">The Valorant Shorts Formula</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-slate-400 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[#B5B5B5] text-sm">
             {[
               { title: "🎬 Clip Selection", desc: "Choose your best 20-40 seconds. Start with the most exciting moment. 1v5 clutches, ACEs, and unusual weapon highlights perform best." },
               { title: "📝 Title Optimization", desc: "Include agent name + play type + emotional trigger. Use our AI generator for titles optimized for the Shorts algorithm." },
@@ -97,8 +97,8 @@ export default function ValorantYoutubeShortsPage() {
           <h2 className="text-2xl font-black text-white mb-4">Pre-Post Checklist</h2>
           <ul className="space-y-2">
             {CHECKLIST.map((item) => (
-              <li key={item} className="flex items-center gap-3 text-slate-400 text-sm">
-                <span className="w-5 h-5 rounded border border-purple-500/40 flex-shrink-0 flex items-center justify-center text-purple-400 text-xs">✓</span>
+              <li key={item} className="flex items-center gap-3 text-[#B5B5B5] text-sm">
+                <span className="w-5 h-5 rounded border border-[rgba(255,70,85,0.4)] flex-shrink-0 flex items-center justify-center text-[#FF4655] text-xs">✓</span>
                 {item}
               </li>
             ))}
@@ -111,7 +111,7 @@ export default function ValorantYoutubeShortsPage() {
             {FAQS.map((faq) => (
               <div key={faq.q} className="glass-card p-6">
                 <h3 className="font-bold text-white mb-2">{faq.q}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-[#B5B5B5] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

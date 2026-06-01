@@ -43,10 +43,10 @@ Our generator creates titles specifically optimized for YouTube's search and rec
 ];
 
 const colorMap: Record<string, { border: string; text: string; bg: string; iconBg: string }> = {
-  purple: { border: "border-purple-500/20", text: "text-purple-400", bg: "bg-purple-500/5", iconBg: "bg-purple-500/20" },
-  blue: { border: "border-blue-500/20", text: "text-blue-400", bg: "bg-blue-500/5", iconBg: "bg-blue-500/20" },
-  cyan: { border: "border-cyan-500/20", text: "text-cyan-400", bg: "bg-cyan-500/5", iconBg: "bg-cyan-500/20" },
-  pink: { border: "border-pink-500/20", text: "text-pink-400", bg: "bg-pink-500/5", iconBg: "bg-pink-500/20" },
+  purple: { border: "border-[rgba(255,70,85,0.2)]",  text: "text-[#FF4655]",  bg: "bg-[#FF4655]/5",  iconBg: "bg-[#FF4655]/15" },
+  blue:   { border: "border-[rgba(255,107,122,0.2)]", text: "text-[#FF6B7A]",  bg: "bg-[#FF6B7A]/5",  iconBg: "bg-[#FF6B7A]/15" },
+  cyan:   { border: "border-[rgba(255,138,148,0.2)]", text: "text-[#FF8A94]",  bg: "bg-[#FF8A94]/5",  iconBg: "bg-[#FF8A94]/15" },
+  pink:   { border: "border-[rgba(236,232,225,0.15)]",text: "text-[#ECE8E1]",  bg: "bg-[#ECE8E1]/4",  iconBg: "bg-[#ECE8E1]/10" },
 };
 
 export default function SEOSections() {
@@ -63,11 +63,11 @@ export default function SEOSections() {
         >
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
             The Complete Guide to{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FF4655] to-[#FF6B7A] bg-clip-text text-transparent">
               Viral Valorant Content
             </span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+          <p className="text-[#B5B5B5] text-lg max-w-xl mx-auto">
             Everything you need to know about growing your Valorant channel.
           </p>
         </motion.div>
@@ -93,7 +93,7 @@ export default function SEOSections() {
                 </div>
                 <div className={`p-4 rounded-xl ${c.bg} border ${c.border}`}>
                   {section.content.split("\n\n").map((para, j) => (
-                    <p key={j} className={`text-slate-400 text-sm leading-relaxed ${j > 0 ? "mt-3" : ""}`}>
+                    <p key={j} className={`text-[#B5B5B5] text-sm leading-relaxed ${j > 0 ? "mt-3" : ""}`}>
                       {para}
                     </p>
                   ))}

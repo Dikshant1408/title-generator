@@ -19,7 +19,8 @@ export default function ParticleBackground() {
     // Fewer particles on mobile for better performance
     const isMobile = window.innerWidth < 768;
     const COUNT = isMobile ? 30 : 60;
-    const colors = ["#a855f7", "#3b82f6", "#06b6d4", "#ec4899", "#8b5cf6"];
+    // Valorant palette: red, off-white, light gray — reduced intensity
+    const colors = ["#FF4655", "#FF6B7A", "#ECE8E1", "#B5B5B5", "#FF4655"];
     const particles: Particle[] = [];
 
     const resize = () => {
@@ -37,7 +38,7 @@ export default function ParticleBackground() {
       vx: (Math.random() - 0.5) * 0.3,
       vy: (Math.random() - 0.5) * 0.3 - 0.05,
       size: Math.random() * 1.5 + 0.5,
-      opacity: Math.random() * 0.5 + 0.1,
+      opacity: Math.random() * 0.35 + 0.07,  // reduced 30% from original
       color: colors[Math.floor(Math.random() * colors.length)],
       life: 0,
       maxLife: Math.random() * 400 + 200,

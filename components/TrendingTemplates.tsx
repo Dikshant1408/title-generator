@@ -7,7 +7,7 @@ import { useState } from "react";
 const TRENDING = [
   {
     category: "ACE Titles",
-    color: "purple",
+    color: "red",
     templates: [
       "He just deleted the entire lobby 🤯",
       "5 kills. 1 clip. No remorse. 💀",
@@ -18,7 +18,7 @@ const TRENDING = [
   },
   {
     category: "Clutch Titles",
-    color: "blue",
+    color: "redlight",
     templates: [
       "1v5 and he didn't even flinch 🧊",
       "This clutch is actually illegal 🚨",
@@ -29,7 +29,7 @@ const TRENDING = [
   },
   {
     category: "Operator Titles",
-    color: "cyan",
+    color: "offwhite",
     templates: [
       "The OP was not ready for this 🔫",
       "Sniper god just woke up 👁️",
@@ -40,7 +40,7 @@ const TRENDING = [
   },
   {
     category: "Anime Edit Captions",
-    color: "pink",
+    color: "muted",
     templates: [
       "The demon awakens 🌸",
       "This is what peak performance looks like ⚡",
@@ -52,10 +52,10 @@ const TRENDING = [
 ];
 
 const colorMap: Record<string, { border: string; text: string; bg: string; pill: string }> = {
-  purple: { border: "border-purple-500/30", text: "text-purple-400", bg: "bg-purple-500/10", pill: "bg-purple-500/20 text-purple-300 border-purple-500/30" },
-  blue: { border: "border-blue-500/30", text: "text-blue-400", bg: "bg-blue-500/10", pill: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
-  cyan: { border: "border-cyan-500/30", text: "text-cyan-400", bg: "bg-cyan-500/10", pill: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30" },
-  pink: { border: "border-pink-500/30", text: "text-pink-400", bg: "bg-pink-500/10", pill: "bg-pink-500/20 text-pink-300 border-pink-500/30" },
+  red:      { border: "border-[rgba(255,70,85,0.3)]",  text: "text-[#FF4655]",  bg: "bg-[#FF4655]/10",  pill: "bg-[#FF4655]/20 text-[#FF8A94] border-[rgba(255,70,85,0.3)]" },
+  redlight: { border: "border-[rgba(255,107,122,0.3)]", text: "text-[#FF6B7A]",  bg: "bg-[#FF6B7A]/10",  pill: "bg-[#FF6B7A]/20 text-[#FF8A94] border-[rgba(255,107,122,0.3)]" },
+  offwhite: { border: "border-[rgba(236,232,225,0.2)]", text: "text-[#ECE8E1]",  bg: "bg-[#ECE8E1]/6",   pill: "bg-[#ECE8E1]/15 text-[#ECE8E1] border-[rgba(236,232,225,0.2)]" },
+  muted:    { border: "border-[rgba(181,181,181,0.2)]", text: "text-[#B5B5B5]",  bg: "bg-[#B5B5B5]/6",   pill: "bg-[#B5B5B5]/15 text-[#ECE8E1] border-[rgba(181,181,181,0.2)]" },
 };
 
 function CopyableTemplate({ text }: { text: string }) {
@@ -72,12 +72,12 @@ function CopyableTemplate({ text }: { text: string }) {
       onClick={handleCopy}
       className="w-full flex items-center justify-between gap-3 p-3 rounded-lg bg-white/3 hover:bg-white/6 border border-white/5 hover:border-white/10 transition-all text-left group"
     >
-      <span className="text-slate-300 text-sm leading-snug flex-1">{text}</span>
+      <span className="text-[#ECE8E1]/70 text-sm leading-snug flex-1">{text}</span>
       <span className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
         {copied ? (
-          <Check className="w-4 h-4 text-green-400" />
+          <Check className="w-4 h-4 text-[#00FFB2]" />
         ) : (
-          <Copy className="w-4 h-4 text-slate-500" />
+          <Copy className="w-4 h-4 text-[#B5B5B5]/50" />
         )}
       </span>
     </button>
@@ -97,17 +97,17 @@ export default function TrendingTemplates() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-cyan-300 mb-4 border border-cyan-500/30">
+          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-[#FF8A94] mb-4 border border-[rgba(255,70,85,0.25)]">
             <TrendingUp className="w-4 h-4" />
             Trending Templates
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white mb-4">
             Proven{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FF4655] to-[#FF6B7A] bg-clip-text text-transparent">
               Viral Formats
             </span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+          <p className="text-[#B5B5B5] text-lg max-w-xl mx-auto">
             Steal these battle-tested title templates used by top Valorant creators. Click to copy.
           </p>
         </motion.div>
@@ -144,14 +144,9 @@ export default function TrendingTemplates() {
         </div>
 
         {/* Bottom note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center text-slate-600 text-sm mt-8"
-        >
+        <p className="text-center text-[#B5B5B5]/40 text-sm mt-8">
           These are starter templates. Use the AI generator above for fully custom, clip-specific content.
-        </motion.p>
+        </p>
       </div>
     </section>
   );

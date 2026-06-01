@@ -52,10 +52,10 @@ const TAG_PRESETS: Record<TagCategory, string[]> = {
 };
 
 const PLATFORM_COLORS: Record<Platform, { border: string; text: string; bg: string; badge: string }> = {
-  youtube:   { border: "border-red-500/30",    text: "text-red-400",    bg: "bg-red-500/10",    badge: "bg-red-500/20 text-red-300 border-red-500/30" },
-  tiktok:    { border: "border-pink-500/30",   text: "text-pink-400",   bg: "bg-pink-500/10",   badge: "bg-pink-500/20 text-pink-300 border-pink-500/30" },
-  instagram: { border: "border-purple-500/30", text: "text-purple-400", bg: "bg-purple-500/10", badge: "bg-purple-500/20 text-purple-300 border-purple-500/30" },
-  twitter:   { border: "border-blue-500/30",   text: "text-blue-400",   bg: "bg-blue-500/10",   badge: "bg-blue-500/20 text-blue-300 border-blue-500/30" },
+  youtube:   { border: "border-[rgba(255,70,85,0.3)]",  text: "text-[#FF4655]",  bg: "bg-[#FF4655]/10", badge: "bg-[#FF4655]/20 text-[#FF8A94] border-[rgba(255,70,85,0.3)]" },
+  tiktok:    { border: "border-[rgba(255,107,122,0.3)]", text: "text-[#FF6B7A]",  bg: "bg-[#FF6B7A]/10", badge: "bg-[#FF6B7A]/20 text-[#FF8A94] border-[rgba(255,107,122,0.3)]" },
+  instagram: { border: "border-[rgba(255,138,148,0.3)]", text: "text-[#FF8A94]",  bg: "bg-[#FF8A94]/10", badge: "bg-[#FF8A94]/20 text-[#ECE8E1] border-[rgba(255,138,148,0.3)]" },
+  twitter:   { border: "border-[rgba(236,232,225,0.2)]", text: "text-[#ECE8E1]",  bg: "bg-[#ECE8E1]/8",  badge: "bg-[#ECE8E1]/15 text-[#ECE8E1] border-[rgba(236,232,225,0.2)]" },
 };
 
 /* ─── Helpers ────────────────────────────────────────────── */
@@ -145,14 +145,14 @@ function TagPill({ tag, onRemove }: { tag: string; onRemove?: () => void }) {
   };
   return (
     <span className="inline-flex items-center gap-1 hashtag-pill group cursor-pointer" onClick={copy}>
-      {copied ? <Check className="w-3 h-3 text-green-400" /> : null}
+      {copied ? <Check className="w-3 h-3 text-[#00FFB2]" /> : null}
       {tag}
       {onRemove && (
         <button
           onClick={e => { e.stopPropagation(); onRemove(); }}
           className="ml-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
         >
-          <X className="w-3 h-3 text-slate-500 hover:text-red-400" />
+          <X className="w-3 h-3 text-[#B5B5B5]/50 hover:text-[#FF4655]" />
         </button>
       )}
     </span>
@@ -163,7 +163,7 @@ function PlatformTagCard({ tagSet }: { tagSet: TagSet }) {
   const [copied, setCopied] = useState(false);
   const c = PLATFORM_COLORS[tagSet.platform];
   const pct = Math.round((tagSet.charCount / tagSet.limit) * 100);
-  const barColor = pct > 90 ? "bg-red-500" : pct > 70 ? "bg-orange-400" : "bg-purple-500";
+  const barColor = pct > 90 ? "bg-[#FF4655]" : pct > 70 ? "bg-[#FF6B7A]" : "bg-[#FF4655]/60";
 
   const copyAll = async () => {
     await navigator.clipboard.writeText(tagSet.tags.join(" "));
@@ -185,11 +185,11 @@ function PlatformTagCard({ tagSet }: { tagSet: TagSet }) {
           <span className={`text-lg font-black ${c.text}`}>{platform.icon}</span>
           <div>
             <h4 className={`font-bold text-sm ${c.text}`}>{platform.label}</h4>
-            <p className="text-xs text-slate-600">{tagSet.tags.length} tags</p>
+            <p className="text-xs text-[#B5B5B5]/40">{tagSet.tags.length} tags</p>
           </div>
         </div>
-        <button onClick={copyAll} className="copy-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-slate-400 hover:text-purple-300">
-          {copied ? <><Check className="w-3.5 h-3.5 text-green-400" />Copied!</> : <><Copy className="w-3.5 h-3.5" />Copy All</>}
+        <button onClick={copyAll} className="copy-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-[#B5B5B5] hover:text-[#FF4655]">
+          {copied ? <><Check className="w-3.5 h-3.5 text-[#00FFB2]" />Copied!</> : <><Copy className="w-3.5 h-3.5" />Copy All</>}
         </button>
       </div>
 
@@ -200,11 +200,11 @@ function PlatformTagCard({ tagSet }: { tagSet: TagSet }) {
 
       {/* Char count bar */}
       <div>
-        <div className="flex justify-between text-xs text-slate-600 mb-1">
+        <div className="flex justify-between text-xs text-[#B5B5B5]/40 mb-1">
           <span>{tagSet.charCount} chars</span>
           <span>limit: {tagSet.limit}</span>
         </div>
-        <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+        <div className="h-1.5 bg-[#0F1923] rounded-full overflow-hidden">
           <div
             className={`h-full rounded-full transition-all ${barColor}`}
             style={{ width: `${Math.min(pct, 100)}%` }}
@@ -294,9 +294,8 @@ export default function TagsGenerator() {
 
   return (
     <section id="tags-generator" className="relative py-20 px-4">
-      {/* Glow orbs */}
-      <div className="glow-orb w-80 h-80 bg-cyan-600/10 top-0 right-0 pointer-events-none" />
-      <div className="glow-orb w-64 h-64 bg-blue-600/10 bottom-0 left-0 pointer-events-none" />
+      <div className="glow-orb w-80 h-80 bg-red-600/6 top-0 right-0 pointer-events-none" />
+      <div className="glow-orb w-64 h-64 bg-red-500/5 bottom-0 left-0 pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Header */}
@@ -306,18 +305,18 @@ export default function TagsGenerator() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-cyan-300 mb-4 border border-cyan-500/30">
+          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-[#FF8A94] mb-4 border border-[rgba(255,70,85,0.25)]">
             <Hash className="w-4 h-4" />
             Tags Generator
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white mb-4">
             Generate{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FF4655] to-[#FF6B7A] bg-clip-text text-transparent">
               Perfect Tags
             </span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Platform-optimized hashtags for YouTube, TikTok, Instagram & Twitter — tailored to your agent, map, and rank.
+          <p className="text-[#B5B5B5] text-lg max-w-xl mx-auto">
+            Platform-optimized hashtags for YouTube, TikTok, Instagram &amp; Twitter — tailored to your agent, map, and rank.
           </p>
         </motion.div>
 
@@ -326,11 +325,11 @@ export default function TagsGenerator() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card p-6 sm:p-8 border border-cyan-500/20 mb-8"
+          className="glass-card p-6 sm:p-8 border border-[rgba(255,70,85,0.2)] mb-8"
         >
           {/* Platform selector */}
           <div className="mb-6">
-            <label className="block text-sm font-semibold text-slate-300 mb-3">
+            <label className="block text-sm font-semibold text-[#ECE8E1] mb-3">
               Select platforms *
             </label>
             <div className="flex flex-wrap gap-2">
@@ -344,7 +343,7 @@ export default function TagsGenerator() {
                     className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border transition-all ${
                       active
                         ? `${c.bg} ${c.border} ${c.text} shadow-lg`
-                        : "glass border-slate-700/50 text-slate-500 hover:border-slate-600"
+                        : "glass border-[rgba(255,255,255,0.08)] text-[#B5B5B5]/60 hover:border-[rgba(255,70,85,0.2)]"
                     }`}
                   >
                     <span>{p.icon}</span>
@@ -360,44 +359,44 @@ export default function TagsGenerator() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             {/* Agent */}
             <div>
-              <label htmlFor="agent-select" className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Agent</label>
+              <label htmlFor="agent-select" className="block text-xs font-semibold text-[#B5B5B5]/60 mb-2 uppercase tracking-wide">Agent</label>
               <div className="relative">
                 <select id="agent-select" value={agent} onChange={e => setAgent(e.target.value)} className="neon-select w-full rounded-xl px-3 py-2.5 text-sm pr-8" aria-label="Select agent">
                   <option value="">Any agent</option>
                   {AGENTS.map(a => <option key={a} value={a}>{a}</option>)}
                 </select>
-                <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-purple-400 pointer-events-none" />
+                <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#FF4655] pointer-events-none" />
               </div>
             </div>
 
             {/* Map */}
             <div>
-              <label htmlFor="map-select" className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Map</label>
+              <label htmlFor="map-select" className="block text-xs font-semibold text-[#B5B5B5]/60 mb-2 uppercase tracking-wide">Map</label>
               <div className="relative">
                 <select id="map-select" value={map} onChange={e => setMap(e.target.value)} className="neon-select w-full rounded-xl px-3 py-2.5 text-sm pr-8" aria-label="Select map">
                   <option value="">Any map</option>
                   {MAPS.map(m => <option key={m} value={m}>{m}</option>)}
                 </select>
-                <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-purple-400 pointer-events-none" />
+                <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#FF4655] pointer-events-none" />
               </div>
             </div>
 
             {/* Rank */}
             <div>
-              <label htmlFor="rank-select" className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Rank</label>
+              <label htmlFor="rank-select" className="block text-xs font-semibold text-[#B5B5B5]/60 mb-2 uppercase tracking-wide">Rank</label>
               <div className="relative">
                 <select id="rank-select" value={rank} onChange={e => setRank(e.target.value)} className="neon-select w-full rounded-xl px-3 py-2.5 text-sm pr-8" aria-label="Select rank">
                   <option value="">Any rank</option>
                   {RANKS.map(r => <option key={r} value={r}>{r}</option>)}
                 </select>
-                <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-purple-400 pointer-events-none" />
+                <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#FF4655] pointer-events-none" />
               </div>
             </div>
           </div>
 
           {/* Tag category */}
           <div className="mb-6">
-            <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">Tag focus</label>
+            <label className="block text-xs font-semibold text-[#B5B5B5]/60 mb-2 uppercase tracking-wide">Tag focus</label>
             <div className="flex flex-wrap gap-2">
               {(["all","general","trending","agent","map","rank"] as TagCategory[]).map(cat => (
                 <button
@@ -405,8 +404,8 @@ export default function TagsGenerator() {
                   onClick={() => setCategory(cat)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all capitalize ${
                     category === cat
-                      ? "bg-cyan-500/20 border-cyan-500/50 text-cyan-300"
-                      : "glass border-slate-700/50 text-slate-500 hover:border-slate-600"
+                      ? "bg-[#FF4655]/15 border-[rgba(255,70,85,0.4)] text-[#FF8A94]"
+                      : "glass border-[rgba(255,255,255,0.08)] text-[#B5B5B5]/50 hover:border-[rgba(255,70,85,0.2)]"
                   }`}
                 >
                   {cat === "all" ? "🔥 All" : cat}
@@ -417,21 +416,21 @@ export default function TagsGenerator() {
 
           {/* AI description (optional) */}
           <div className="mb-5">
-            <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
-              Clip description <span className="text-slate-600 normal-case">(optional — AI generates extra tags)</span>
+            <label className="block text-xs font-semibold text-[#B5B5B5]/60 mb-2 uppercase tracking-wide">
+              Clip description <span className="text-[#B5B5B5]/30 normal-case">(optional — AI generates extra tags)</span>
             </label>
             <input
               type="text"
               value={aiTagInput}
               onChange={e => setAiTagInput(e.target.value)}
               placeholder="e.g. Jett ace with operator on Haven..."
-              className="glow-input w-full rounded-xl px-4 py-2.5 text-white placeholder-slate-600 text-sm"
+              className="glow-input w-full rounded-xl px-4 py-2.5 text-white placeholder-[#B5B5B5]/30 text-sm"
             />
           </div>
 
           {/* Custom tags */}
           <div className="mb-6">
-            <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
+            <label className="block text-xs font-semibold text-[#B5B5B5]/60 mb-2 uppercase tracking-wide">
               Add custom tags
             </label>
             <div className="flex gap-2">
@@ -441,11 +440,11 @@ export default function TagsGenerator() {
                 onChange={e => setCustomInput(e.target.value)}
                 onKeyDown={e => e.key === "Enter" && addCustomTag()}
                 placeholder="#yourtag or multiple separated by space"
-                className="glow-input flex-1 rounded-xl px-4 py-2.5 text-white placeholder-slate-600 text-sm"
+                className="glow-input flex-1 rounded-xl px-4 py-2.5 text-white placeholder-[#B5B5B5]/30 text-sm"
               />
               <button
                 onClick={addCustomTag}
-                className="copy-btn px-4 py-2.5 rounded-xl text-sm text-purple-300 font-semibold whitespace-nowrap"
+                className="copy-btn px-4 py-2.5 rounded-xl text-sm text-[#FF8A94] font-semibold whitespace-nowrap"
               >
                 + Add
               </button>
@@ -486,20 +485,20 @@ export default function TagsGenerator() {
               {/* Results header */}
               <div className="flex items-center justify-between mb-5">
                 <h3 className="text-xl font-black text-white flex items-center gap-2">
-                  <Hash className="w-5 h-5 text-cyan-400" />
+                  <Hash className="w-5 h-5 text-[#FF4655]" />
                   Your Tag Sets
                 </h3>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleGenerate}
-                    className="copy-btn flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-purple-300"
+                    className="copy-btn flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-[#FF8A94]"
                   >
                     <RefreshCw className="w-3.5 h-3.5" />
                     Regenerate
                   </button>
                   <button
                     onClick={copyAllPlatforms}
-                    className="copy-btn flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-cyan-300"
+                    className="copy-btn flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs text-[#FF8A94]"
                   >
                     <Copy className="w-3.5 h-3.5" />
                     Copy All Platforms
@@ -519,13 +518,13 @@ export default function TagsGenerator() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="mt-6 glass-card p-5 border border-cyan-500/15"
+                className="mt-6 glass-card p-5 border border-[rgba(255,70,85,0.15)]"
               >
-                <h4 className="text-sm font-bold text-cyan-400 mb-3 flex items-center gap-2">
+                <h4 className="text-sm font-bold text-[#FF8A94] mb-3 flex items-center gap-2">
                   <Zap className="w-4 h-4" />
                   Pro Tag Tips
                 </h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-500">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#B5B5B5]/50">
                   <li>• YouTube: Use all 500 chars — more tags = more discovery</li>
                   <li>• TikTok: Mix 3-5 niche tags with 2-3 viral tags (#fyp)</li>
                   <li>• Instagram: 20-30 tags in first comment, not caption</li>

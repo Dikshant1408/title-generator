@@ -63,14 +63,14 @@ export default function ValorantCaptionsPage() {
     <main className="min-h-screen page-bg py-20 px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="max-w-4xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm mb-8 transition-colors">← Back to Home</Link>
+        <Link href="/" className="inline-flex items-center gap-2 text-[#FF8A94] hover:text-[#FF4655] text-sm mb-8 transition-colors">← Back to Home</Link>
 
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
             Valorant{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Captions Generator</span>
+            <span className="bg-gradient-to-r from-[#FF4655] to-[#FF6B7A] bg-clip-text text-transparent">Captions Generator</span>
           </h1>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-[#B5B5B5] text-lg max-w-2xl mx-auto">
             Generate viral captions for your Valorant TikTok, Instagram Reels, and YouTube Shorts. AI-crafted with emojis and CTAs that drive real engagement.
           </p>
           <Link href="/#generator" className="neon-btn inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl mt-6">
@@ -80,7 +80,7 @@ export default function ValorantCaptionsPage() {
 
         <div className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">Why Captions Matter for Valorant Content</h2>
-          <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
             <p>Your caption is the second thing viewers see after your thumbnail and title. On TikTok, the caption appears over your video — it&apos;s part of the viewing experience, not an afterthought. A well-crafted caption can increase watch time, drive comments, and push your video to more viewers through the algorithm.</p>
             <p>The most important element of a Valorant caption is the call to action. Asking viewers a question (&quot;Would you have clutched this?&quot;) generates comments, which is one of the strongest signals TikTok and YouTube use to determine whether to push your content to more people. More comments = more reach.</p>
             <p>Captions also serve an SEO function on YouTube. The description is indexed by Google and YouTube&apos;s search engine. Including keywords like &quot;Valorant clutch&quot;, &quot;Jett gameplay&quot;, and &quot;Valorant highlights&quot; in your description helps your video rank in search results.</p>
@@ -92,10 +92,10 @@ export default function ValorantCaptionsPage() {
           <div className="space-y-6">
             {CAPTION_EXAMPLES.map((ex) => (
               <div key={ex.type} className="glass-card p-6">
-                <h3 className="font-bold text-purple-400 text-sm uppercase tracking-wide mb-4">{ex.type}</h3>
+                <h3 className="font-bold text-[#FF8A94] text-sm uppercase tracking-wide mb-4">{ex.type}</h3>
                 <div className="space-y-3">
                   {ex.captions.map((c, i) => (
-                    <div key={i} className="p-3 rounded-lg bg-blue-500/5 border border-blue-500/15 text-slate-300 text-sm leading-relaxed">
+                    <div key={i} className="p-3 rounded-lg bg-[#FF4655]/5 border border-[rgba(255,70,85,0.12)] text-[#ECE8E1] text-sm leading-relaxed">
                       {c}
                     </div>
                   ))}
@@ -107,10 +107,10 @@ export default function ValorantCaptionsPage() {
 
         <div className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">Caption Formula That Works</h2>
-          <div className="space-y-4 text-slate-400">
-            <div className="p-4 rounded-xl bg-purple-500/5 border border-purple-500/20">
+          <div className="space-y-4 text-[#B5B5B5]">
+            <div className="p-4 rounded-xl bg-[#FF4655]/5 border border-[rgba(255,70,85,0.2)]">
               <p className="font-semibold text-white mb-2">Formula: Hook + Context + CTA</p>
-              <p className="text-sm">Example: &quot;<span className="text-purple-300">1v4 and I had 3 HP</span> 💀 <span className="text-blue-300">Cleanest clutch of my Valorant career.</span> <span className="text-cyan-300">Would you have won this? 👇</span>&quot;</p>
+              <p className="text-sm">Example: &quot;<span className="text-[#FF8A94]">1v4 and I had 3 HP</span> 💀 <span className="text-[#ECE8E1]/80">Cleanest clutch of my Valorant career.</span> <span className="text-[#FF6B7A]">Would you have won this? 👇</span>&quot;</p>
             </div>
             <ul className="space-y-2 text-sm">
               <li><strong className="text-white">Hook:</strong> The most exciting stat or moment — put it first</li>
@@ -126,7 +126,7 @@ export default function ValorantCaptionsPage() {
             {FAQS.map((faq) => (
               <div key={faq.q} className="glass-card p-6">
                 <h3 className="font-bold text-white mb-2">{faq.q}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-[#B5B5B5] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

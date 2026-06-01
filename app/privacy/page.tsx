@@ -13,14 +13,14 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen page-bg py-20 px-4">
       <div className="max-w-3xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm mb-8 transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-[#FF8A94] hover:text-[#FF4655] text-sm mb-8 transition-colors">
           ← Back to Home
         </Link>
         <div className="glass-card p-8 sm:p-12">
           <h1 className="text-3xl font-black text-white mb-2">Privacy Policy</h1>
-          <p className="text-slate-500 text-sm mb-10">Last updated: {updated}</p>
+          <p className="text-[#B5B5B5]/50 text-sm mb-10">Last updated: {updated}</p>
 
-          <div className="space-y-8 text-slate-400 text-sm leading-relaxed">
+          <div className="space-y-8 text-[#B5B5B5] text-sm leading-relaxed">
 
             <section>
               <h2 className="text-lg font-bold text-white mb-3">1. Introduction</h2>
@@ -29,14 +29,14 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-lg font-bold text-white mb-3">2. Information We Collect</h2>
-              <h3 className="font-semibold text-slate-300 mb-2">Automatically Collected</h3>
+              <h3 className="font-semibold text-[#ECE8E1] mb-2">Automatically Collected</h3>
               <ul className="list-disc list-inside space-y-1 mb-3 ml-2">
                 <li>IP address and approximate location (country/region)</li>
                 <li>Browser type, version, and operating system</li>
                 <li>Pages visited, time on page, and referring URLs</li>
                 <li>Device type (mobile, desktop, tablet)</li>
               </ul>
-              <h3 className="font-semibold text-slate-300 mb-2">User-Provided</h3>
+              <h3 className="font-semibold text-[#ECE8E1] mb-2">User-Provided</h3>
               <ul className="list-disc list-inside space-y-1 ml-2">
                 <li>Clip descriptions you enter into the generator (processed in real-time, not stored)</li>
               </ul>
@@ -46,11 +46,11 @@ export default function PrivacyPage() {
               <h2 className="text-lg font-bold text-white mb-3">3. Cookies and Tracking</h2>
               <p className="mb-3">We use cookies and similar tracking technologies for the following purposes:</p>
               <ul className="list-disc list-inside space-y-2 ml-2">
-                <li><strong className="text-slate-300">Essential cookies:</strong> Required for the site to function properly.</li>
-                <li><strong className="text-slate-300">Analytics cookies:</strong> Google Analytics 4 collects anonymized usage data to help us improve the Service.</li>
-                <li><strong className="text-slate-300">Advertising cookies:</strong> Google AdSense uses cookies to serve personalized ads based on your browsing history.</li>
+                <li><strong className="text-[#ECE8E1]">Essential cookies:</strong> Required for the site to function properly.</li>
+                <li><strong className="text-[#ECE8E1]">Analytics cookies:</strong> Google Analytics 4 collects anonymized usage data to help us improve the Service.</li>
+                <li><strong className="text-[#ECE8E1]">Advertising cookies:</strong> Google AdSense uses cookies to serve personalized ads based on your browsing history.</li>
               </ul>
-              <p className="mt-3">You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Google Ads Settings</a> or via <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">aboutads.info</a>.</p>
+              <p className="mt-3">You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-[#FF8A94] hover:text-[#FF4655] underline">Google Ads Settings</a> or via <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-[#FF8A94] hover:text-[#FF4655] underline">aboutads.info</a>.</p>
             </section>
 
             <section>
@@ -62,21 +62,21 @@ export default function PrivacyPage() {
                 <li>Collects data about your interactions with ads</li>
                 <li>May share data with Google&apos;s advertising partners</li>
               </ul>
-              <p className="mt-3">Google&apos;s use of advertising cookies is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Google&apos;s Privacy Policy</a>.</p>
+              <p className="mt-3">Google&apos;s use of advertising cookies is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#FF8A94] hover:text-[#FF4655] underline">Google&apos;s Privacy Policy</a>.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-bold text-white mb-3">5. Google Analytics</h2>
-              <p>We use Google Analytics 4 to understand how visitors use our site. Google Analytics collects anonymized data including page views, session duration, and user interactions. This data is used solely to improve the Service. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Google Analytics Opt-out Browser Add-on</a>.</p>
+              <p>We use Google Analytics 4 to understand how visitors use our site. Google Analytics collects anonymized data including page views, session duration, and user interactions. This data is used solely to improve the Service. You can opt out using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-[#FF8A94] hover:text-[#FF4655] underline">Google Analytics Opt-out Browser Add-on</a>.</p>
             </section>
 
             <section>
               <h2 className="text-lg font-bold text-white mb-3">6. Third-Party Services</h2>
               <ul className="space-y-3 ml-2">
-                <li><strong className="text-slate-300">Groq AI:</strong> Processes clip descriptions to generate content. Input is sent to Groq&apos;s API and not stored. See <a href="https://groq.com/privacy" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Groq Privacy Policy</a>.</li>
-                <li><strong className="text-slate-300">Vercel:</strong> Hosts our website and may collect server logs. See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Vercel Privacy Policy</a>.</li>
-                <li><strong className="text-slate-300">Google AdSense:</strong> Serves advertisements. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Google Privacy Policy</a>.</li>
-                <li><strong className="text-slate-300">Google Analytics:</strong> Tracks anonymized usage. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">Google Privacy Policy</a>.</li>
+                <li><strong className="text-[#ECE8E1]">Groq AI:</strong> Processes clip descriptions to generate content. Input is sent to Groq&apos;s API and not stored. See <a href="https://groq.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#FF8A94] hover:text-[#FF4655] underline">Groq Privacy Policy</a>.</li>
+                <li><strong className="text-[#ECE8E1]">Vercel:</strong> Hosts our website and may collect server logs. See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-[#FF8A94] hover:text-[#FF4655] underline">Vercel Privacy Policy</a>.</li>
+                <li><strong className="text-[#ECE8E1]">Google AdSense:</strong> Serves advertisements. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#FF8A94] hover:text-[#FF4655] underline">Google Privacy Policy</a>.</li>
+                <li><strong className="text-[#ECE8E1]">Google Analytics:</strong> Tracks anonymized usage. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[#FF8A94] hover:text-[#FF4655] underline">Google Privacy Policy</a>.</li>
               </ul>
             </section>
 
@@ -114,13 +114,13 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-lg font-bold text-white mb-3">12. Contact</h2>
               <p>For privacy-related questions, contact us at{" "}
-                <a href="mailto:godrikt1408@gmail.com" className="text-purple-400 hover:text-purple-300 underline">godrikt1408@gmail.com</a>.
+                <a href="mailto:godrikt1408@gmail.com" className="text-[#FF8A94] hover:text-[#FF4655] underline">godrikt1408@gmail.com</a>.
               </p>
             </section>
 
           </div>
         </div>
-        <p className="text-center text-xs text-slate-700 mt-6">
+        <p className="text-center text-xs text-[#B5B5B5]/30 mt-6">
           VALORANT is a trademark of Riot Games. ValorantViral is not affiliated with Riot Games.
         </p>
       </div>

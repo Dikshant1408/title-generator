@@ -70,11 +70,11 @@ export default function AdBanner({
         className={`ad-placeholder ${heightClass} flex flex-col items-center justify-center gap-1 ${className}`}
         aria-hidden="true"
       >
-        <span className="text-[10px] uppercase tracking-widest text-slate-700 font-semibold">
+        <span className="text-[10px] uppercase tracking-widest text-[#B5B5B5]/20 font-semibold">
           {label}
         </span>
         {isDev && (
-          <span className="text-[9px] text-slate-800">{format} · {slot}</span>
+          <span className="text-[9px] text-[#B5B5B5]/15">{format} · {slot}</span>
         )}
       </div>
     );
@@ -83,7 +83,7 @@ export default function AdBanner({
   /* ── Real AdSense unit ── */
   return (
     <div className={`overflow-hidden text-center ${className}`}>
-      <p className="text-[10px] text-slate-600 mb-1 uppercase tracking-widest">
+      <p className="text-[10px] text-[#B5B5B5]/30 mb-1 uppercase tracking-widest">
         {label}
       </p>
       <ins

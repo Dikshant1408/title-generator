@@ -43,14 +43,14 @@ export default function ValorantShortsTitlesPage() {
     <main className="min-h-screen page-bg py-20 px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="max-w-4xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm mb-8 transition-colors">← Back to Home</Link>
+        <Link href="/" className="inline-flex items-center gap-2 text-[#FF8A94] hover:text-[#FF4655] text-sm mb-8 transition-colors">← Back to Home</Link>
 
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
             Valorant Shorts{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Titles Generator</span>
+            <span className="bg-gradient-to-r from-[#FF4655] to-[#FF6B7A] bg-clip-text text-transparent">Titles Generator</span>
           </h1>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-[#B5B5B5] text-lg max-w-2xl mx-auto">
             Generate viral YouTube Shorts titles for your Valorant clips instantly. AI-optimized for maximum click-through rate.
           </p>
           <Link href="/#generator" className="neon-btn inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl mt-6">
@@ -61,7 +61,7 @@ export default function ValorantShortsTitlesPage() {
         {/* Main content */}
         <div className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">What Are Valorant Shorts Titles?</h2>
-          <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
             <p>Valorant Shorts titles are the short, attention-grabbing headlines you put on your YouTube Shorts clips. They&apos;re one of the most important factors in whether your clip gets views or gets ignored. A great title can be the difference between 100 views and 100,000 views on the exact same clip.</p>
             <p>The YouTube Shorts algorithm uses your title to understand what your video is about and who to show it to. A title like &quot;Jett 1v5 clutch on Haven&quot; tells the algorithm to show your video to people who watch Jett content, Haven gameplay, and clutch highlights. This targeting is what drives organic growth.</p>
             <p>Beyond the algorithm, your title is the first thing a human viewer sees. It needs to create enough curiosity or excitement that they tap to watch. The best Valorant Shorts titles combine a specific play type, an emotional reaction, and a hook that makes the viewer feel like they&apos;re missing out if they don&apos;t watch.</p>
@@ -70,7 +70,7 @@ export default function ValorantShortsTitlesPage() {
 
         <div className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">The Anatomy of a Viral Valorant Title</h2>
-          <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
             <p>After analyzing thousands of top-performing Valorant clips, we&apos;ve identified the key elements that make a title go viral:</p>
             <ul className="space-y-3 ml-4">
               <li><strong className="text-white">1. Specific numbers:</strong> &quot;1v5&quot;, &quot;3 HP&quot;, &quot;5 kills&quot; — numbers create instant context and make the achievement feel concrete.</li>
@@ -88,11 +88,11 @@ export default function ValorantShortsTitlesPage() {
           <div className="space-y-6">
             {EXAMPLES.map((ex) => (
               <div key={ex.clip} className="glass-card p-6">
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">Clip: &quot;{ex.clip}&quot;</p>
+                <p className="text-xs text-[#B5B5B5]/40 uppercase tracking-widest mb-3">Clip: &quot;{ex.clip}&quot;</p>
                 <ul className="space-y-2">
                   {ex.titles.map((t) => (
-                    <li key={t} className="flex items-start gap-2 text-slate-300 text-sm">
-                      <span className="text-purple-400 mt-0.5">→</span>{t}
+                    <li key={t} className="flex items-start gap-2 text-[#ECE8E1] text-sm">
+                      <span className="text-[#FF4655] mt-0.5">→</span>{t}
                     </li>
                   ))}
                 </ul>
@@ -108,7 +108,7 @@ export default function ValorantShortsTitlesPage() {
             {FAQS.map((faq) => (
               <div key={faq.q} className="glass-card p-6">
                 <h3 className="font-bold text-white mb-2">{faq.q}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-[#B5B5B5] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

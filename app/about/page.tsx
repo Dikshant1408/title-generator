@@ -33,22 +33,22 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen page-bg py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm mb-10 transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-[#FF8A94] hover:text-[#FF4655] text-sm mb-10 transition-colors">
           ← Back to Home
         </Link>
 
         {/* Hero */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-purple-300 mb-6 border border-purple-500/30">
+          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-[#FF8A94] mb-6 border border-[rgba(255,70,85,0.3)]">
             ⚡ About ValorantViral
           </div>
           <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">
             Built for{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FF4655] to-[#FF6B7A] bg-clip-text text-transparent">
               Valorant Creators
             </span>
           </h1>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#B5B5B5] text-lg max-w-2xl mx-auto leading-relaxed">
             ValorantViral is a free AI-powered content generator that helps Valorant players
             turn their clips into viral YouTube Shorts, TikTok videos, and Instagram Reels —
             without spending hours writing titles and captions.
@@ -58,7 +58,7 @@ export default function AboutPage() {
         {/* What it is */}
         <section className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">What is ValorantViral?</h2>
-          <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
             <p>
               ValorantViral is a free, no-login-required AI tool specifically designed for
               Valorant content creators. Whether you just hit a 1v5 clutch, landed a clean
@@ -82,7 +82,7 @@ export default function AboutPage() {
         {/* Why we built it */}
         <section className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">Why We Built It</h2>
-          <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
             <p>
               Growing a Valorant YouTube or TikTok channel is hard. The game is competitive,
               the content space is crowded, and the algorithm rewards creators who post
@@ -109,7 +109,7 @@ export default function AboutPage() {
               <div key={f.title} className="glass-card p-5">
                 <div className="text-2xl mb-3">{f.emoji}</div>
                 <h3 className="font-bold text-white mb-2">{f.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{f.desc}</p>
+                <p className="text-[#B5B5B5] text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -121,10 +121,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {HOW_IT_WORKS.map((step) => (
               <div key={step.step} className="flex gap-4">
-                <div className="text-3xl font-black text-purple-500/40 flex-shrink-0 w-10">{step.step}</div>
+                <div className="text-3xl font-black text-[#FF4655]/30 flex-shrink-0 w-10">{step.step}</div>
                 <div>
                   <h3 className="font-bold text-white mb-1">{step.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
+                  <p className="text-[#B5B5B5] text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -134,7 +134,7 @@ export default function AboutPage() {
         {/* Creator benefits */}
         <section className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">Creator Benefits</h2>
-          <ul className="space-y-3 text-slate-400">
+          <ul className="space-y-3 text-[#B5B5B5]">
             {[
               "Save 30+ minutes per clip on title and caption writing",
               "Get higher click-through rates with AI-optimized titles",
@@ -145,7 +145,7 @@ export default function AboutPage() {
               "No account, no credit card, no limits — completely free",
             ].map((b) => (
               <li key={b} className="flex items-start gap-3">
-                <span className="text-purple-400 mt-0.5 flex-shrink-0">✓</span>
+                <span className="text-[#FF4655] mt-0.5 flex-shrink-0">✓</span>
                 <span>{b}</span>
               </li>
             ))}
@@ -155,13 +155,13 @@ export default function AboutPage() {
         {/* CTA */}
         <div className="text-center glass-card p-8">
           <h2 className="text-2xl font-black text-white mb-4">Ready to Go Viral?</h2>
-          <p className="text-slate-400 mb-6">It&apos;s free. No account needed. Start generating in seconds.</p>
+          <p className="text-[#B5B5B5] mb-6">It&apos;s free. No account needed. Start generating in seconds.</p>
           <Link href="/#generator" className="neon-btn inline-flex items-center gap-2 text-white font-bold px-8 py-4 rounded-xl text-lg">
             ⚡ Try the Generator
           </Link>
         </div>
 
-        <p className="text-center text-xs text-slate-700 mt-8">
+        <p className="text-center text-xs text-[#B5B5B5]/30 mt-8">
           VALORANT is a trademark of Riot Games. ValorantViral is not affiliated with or endorsed by Riot Games.
         </p>
       </div>

@@ -42,15 +42,15 @@ export default function ValorantThumbnailTextPage() {
     <main className="min-h-screen page-bg py-20 px-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="max-w-4xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm mb-8 transition-colors">← Back to Home</Link>
+        <Link href="/" className="inline-flex items-center gap-2 text-[#FF8A94] hover:text-[#FF4655] text-sm mb-8 transition-colors">← Back to Home</Link>
 
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
             Valorant{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Thumbnail Text</span>
+            <span className="bg-gradient-to-r from-[#FF4655] to-[#FF6B7A] bg-clip-text text-transparent">Thumbnail Text</span>
             {" "}Generator
           </h1>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-[#B5B5B5] text-lg max-w-2xl mx-auto">
             Generate bold, scroll-stopping thumbnail text for your Valorant YouTube videos. Short, punchy, ALL CAPS text that drives clicks.
           </p>
           <Link href="/#generator" className="neon-btn inline-flex items-center gap-2 text-white font-bold px-6 py-3 rounded-xl mt-6">
@@ -60,7 +60,7 @@ export default function ValorantThumbnailTextPage() {
 
         <div className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">Why Thumbnail Text Matters</h2>
-          <div className="space-y-4 text-slate-400 leading-relaxed">
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
             <p>Your thumbnail is the single most important factor in whether someone clicks your Valorant video. Studies show that thumbnails with bold text get 30-40% higher click-through rates than thumbnails without text. The text acts as a second headline — it communicates the emotional payoff of watching your video before the viewer even reads the title.</p>
             <p>For Valorant content specifically, thumbnail text like &quot;THIS SHOULD BE ILLEGAL&quot; or &quot;1V5 CLUTCH&quot; immediately tells the viewer what kind of content they&apos;re about to watch. It sets expectations and attracts the right audience — people who want to see insane plays, not casual gameplay.</p>
             <p>The key is keeping it short and shocking. Two to five words in massive, bold font is the sweet spot. Think of it as the emotional headline that works even when the thumbnail is displayed at 100 pixels wide on a mobile screen.</p>
@@ -72,10 +72,10 @@ export default function ValorantThumbnailTextPage() {
           <div className="space-y-4">
             {EXAMPLES.map((ex) => (
               <div key={ex.clip} className="glass-card p-6">
-                <p className="text-xs text-slate-500 uppercase tracking-widest mb-4">Clip type: {ex.clip}</p>
+                <p className="text-xs text-[#B5B5B5]/40 uppercase tracking-widest mb-4">Clip type: {ex.clip}</p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {ex.texts.map((t) => (
-                    <div key={t} className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-xl p-4 text-center">
+                    <div key={t} className="bg-gradient-to-br from-[#FF4655]/8 to-[#FF6B7A]/5 border border-[rgba(255,70,85,0.2)] rounded-xl p-4 text-center">
                       <span className="text-white font-black text-base leading-tight block">{t}</span>
                     </div>
                   ))}
@@ -87,7 +87,7 @@ export default function ValorantThumbnailTextPage() {
 
         <div className="glass-card p-8 mb-8">
           <h2 className="text-2xl font-black text-white mb-4">Thumbnail Text Best Practices</h2>
-          <ul className="space-y-3 text-slate-400 text-sm">
+          <ul className="space-y-3 text-[#B5B5B5] text-sm">
             {[
               "Keep it to 2-5 words maximum — less is more at thumbnail size",
               "Use ALL CAPS for maximum impact and readability",
@@ -98,7 +98,7 @@ export default function ValorantThumbnailTextPage() {
               "Make sure text is readable at 100px wide (mobile thumbnail size)",
             ].map((tip) => (
               <li key={tip} className="flex items-start gap-2">
-                <span className="text-cyan-400 mt-0.5 flex-shrink-0">✓</span>
+                <span className="text-[#FF4655] mt-0.5 flex-shrink-0">✓</span>
                 {tip}
               </li>
             ))}
@@ -111,7 +111,7 @@ export default function ValorantThumbnailTextPage() {
             {FAQS.map((faq) => (
               <div key={faq.q} className="glass-card p-6">
                 <h3 className="font-bold text-white mb-2">{faq.q}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-[#B5B5B5] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

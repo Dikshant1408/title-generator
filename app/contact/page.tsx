@@ -19,16 +19,16 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen page-bg py-20 px-4">
       <div className="max-w-3xl mx-auto">
-        <Link href="/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm mb-8 transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-[#FF8A94] hover:text-[#FF4655] text-sm mb-8 transition-colors">
           ← Back to Home
         </Link>
 
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-purple-300 mb-4 border border-purple-500/30">
+          <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm text-[#FF8A94] mb-4 border border-[rgba(255,70,85,0.3)]">
             📬 Get in Touch
           </div>
           <h1 className="text-4xl font-black text-white mb-4">Contact Us</h1>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+          <p className="text-[#B5B5B5] text-lg max-w-xl mx-auto">
             Have feedback, found a bug, or want to collaborate? We&apos;d love to hear from you.
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function ContactPage() {
             <div key={t.title} className="glass-card p-5">
               <div className="text-2xl mb-2">{t.emoji}</div>
               <h2 className="font-bold text-white mb-1">{t.title}</h2>
-              <p className="text-slate-400 text-sm">{t.desc}</p>
+              <p className="text-[#B5B5B5] text-sm">{t.desc}</p>
             </div>
           ))}
         </div>
@@ -47,7 +47,7 @@ export default function ContactPage() {
         {/* Email CTA */}
         <div className="glass-card p-8 text-center mb-8">
           <h2 className="text-xl font-black text-white mb-3">Send Us an Email</h2>
-          <p className="text-slate-400 mb-6 text-sm leading-relaxed">
+          <p className="text-[#B5B5B5] mb-6 text-sm leading-relaxed">
             The fastest way to reach us. We typically respond within 24–48 hours.
             Please include as much detail as possible — screenshots help for bug reports.
           </p>
@@ -62,15 +62,15 @@ export default function ContactPage() {
         {/* Response time */}
         <div className="glass-card p-6">
           <h2 className="text-lg font-bold text-white mb-4">What to Include</h2>
-          <ul className="space-y-2 text-slate-400 text-sm">
-            <li className="flex items-start gap-2"><span className="text-purple-400">→</span> Your browser and device (for bug reports)</li>
-            <li className="flex items-start gap-2"><span className="text-purple-400">→</span> Steps to reproduce the issue</li>
-            <li className="flex items-start gap-2"><span className="text-purple-400">→</span> Screenshot or screen recording if possible</li>
-            <li className="flex items-start gap-2"><span className="text-purple-400">→</span> What you expected vs what happened</li>
+          <ul className="space-y-2 text-[#B5B5B5] text-sm">
+            <li className="flex items-start gap-2"><span className="text-[#FF4655]">→</span> Your browser and device (for bug reports)</li>
+            <li className="flex items-start gap-2"><span className="text-[#FF4655]">→</span> Steps to reproduce the issue</li>
+            <li className="flex items-start gap-2"><span className="text-[#FF4655]">→</span> Screenshot or screen recording if possible</li>
+            <li className="flex items-start gap-2"><span className="text-[#FF4655]">→</span> What you expected vs what happened</li>
           </ul>
         </div>
 
-        <p className="text-center text-xs text-slate-700 mt-8">
+        <p className="text-center text-xs text-[#B5B5B5]/30 mt-8">
           VALORANT is a trademark of Riot Games. ValorantViral is not affiliated with Riot Games.
         </p>
       </div>
