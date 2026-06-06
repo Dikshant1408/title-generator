@@ -60,6 +60,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* AdSense & Search Console verification */}
         <meta name="google-adsense-account" content={PUB_ID} />
         <meta name="google-site-verification" content="VbOud-rNqUMkcxFbAo5MAilwSmfScxu3ro_2z63BxUw" />
+        {/* AdSense verification — must be in <head> as static tag for crawler */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${PUB_ID}`}
+          crossOrigin="anonymous"
+        />
         {/* Website schema */}
         <script
           type="application/ld+json"
@@ -82,14 +89,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${inter.className} page-bg min-h-screen`}>
         {children}
         <Analytics />
-        {/* AdSense — afterInteractive prevents render blocking */}
-        <Script
-          id="adsense-script"
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${PUB_ID}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
         {/* Auto Ads — guarded against duplicate calls */}
         <Script id="adsense-auto" strategy="afterInteractive">
           {`(function(){try{var a=window.adsbygoogle=window.adsbygoogle||[];if(!a._autoInit){a._autoInit=true;a.push({google_ad_client:"${PUB_ID}",enable_page_level_ads:true});}}catch(e){}})();`}
