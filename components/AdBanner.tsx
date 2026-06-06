@@ -42,7 +42,7 @@ export default function AdBanner({
   const insRef = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
 
-  const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "ca-pub-5851997796287592";
+  const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "ca-pub-6740234966489727";
   const resolvedSlot = SLOT_MAP[slot] ?? slot; // fall back to raw value if not in map
   const isDev = process.env.NODE_ENV === "development";
   const isReady = !!publisherId && !!resolvedSlot;
