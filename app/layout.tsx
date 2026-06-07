@@ -7,7 +7,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const SITE_URL = "https://valorant-viral-generator.vercel.app";
-const PUB_ID = "ca-pub-5851997796287592";
+const PUB_ID = "ca-pub-6740234966489727";
 
 export const metadata: Metadata = {
   title: {
