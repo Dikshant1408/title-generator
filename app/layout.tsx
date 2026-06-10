@@ -7,7 +7,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const SITE_URL = "https://valorant-viral-generator.vercel.app";
-const PUB_ID = "ca-pub-6740234966489727";
+const PUB_ID = "ca-pub-5851997796287592";
 
 export const metadata: Metadata = {
   title: {
@@ -60,11 +60,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* AdSense & Search Console verification */}
         <meta name="google-adsense-account" content={PUB_ID} />
         <meta name="google-site-verification" content="VbOud-rNqUMkcxFbAo5MAilwSmfScxu3ro_2z63BxUw" />
-        {/* AdSense verification — must be in <head> as static tag for crawler */}
+        {/* AdSense verification — hardcoded static src so the crawler can see it */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
           async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${PUB_ID}`}
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5851997796287592"
           crossOrigin="anonymous"
         />
         {/* Website schema */}
@@ -85,6 +85,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             })
           }}
         />
+        {/* Popunder ad */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="https://pl29702042.effectivecpmnetwork.com/f8/5b/b1/f85bb1105c24813e55e12295d3e5e40d.js" />
       </head>
       <body className={`${inter.className} page-bg min-h-screen`}>
         {children}
