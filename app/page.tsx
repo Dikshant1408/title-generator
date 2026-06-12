@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AdBanner from "@/components/AdBanner";
+import NativeBanner from "@/components/NativeBanner";
 import { ParticleBackground, StickyAdSidebar } from "@/components/ClientOnlyComponents";
 
 // Lazy-load everything below the fold — improves LCP significantly
@@ -44,6 +45,8 @@ export default function Home() {
 
         <ExamplesSection />
         <FeaturesSection />
+
+        <NativeBanner />
 
         <div className="max-w-4xl mx-auto px-4 py-3">
           <AdBanner slot="MID_PAGE_SLOT" format="horizontal" className="w-full rounded-xl overflow-hidden" label="Advertisement" />
