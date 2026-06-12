@@ -87,9 +87,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         {/* Popunder ad */}
         <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var s=document.createElement('script');s.src='https://pl29702042.effectivecpmnetwork.com/f8/5b/b1/f85bb1105c24813e55e12295d3e5e40d.js';s.async=true;document.head.appendChild(s);})();`
-          }}
+          async
+          // eslint-disable-next-line @next/next/no-sync-scripts
+          src="https://pl29702042.effectivecpmnetwork.com/f8/5b/b1/f85bb1105c24813e55e12295d3e5e40d.js"
         />
       </head>
       <body className={`${inter.className} page-bg min-h-screen`}>
@@ -102,10 +102,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* Social Bar */}
         <Script
           id="adsterra-social-bar"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var s=document.createElement('script');s.src='https://pl29722005.effectivecpmnetwork.com/88/4b/0a/884b0a82630c658bdefb99b1fd74f6b8.js';s.async=true;document.body.appendChild(s);})();`
-          }}
+          src="https://pl29722005.effectivecpmnetwork.com/88/4b/0a/884b0a82630c658bdefb99b1fd74f6b8.js"
+          strategy="afterInteractive"
         />
       </body>
     </html>
