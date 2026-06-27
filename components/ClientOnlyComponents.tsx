@@ -12,3 +12,8 @@ export const StickyAdSidebar = dynamic(
   () => import("@/components/StickyAdSidebar"),
   { ssr: false }
 );
+
+export const CookieConsent = dynamic(
+  () => import("@/components/CookieConsent"),
+  { ssr: false }
+);

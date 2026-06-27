@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, Hash, Image, Sparkles } from "lucide-react";
+import { TrendingUp, Hash, Image as ImageIcon, Sparkles } from "lucide-react";
 
 const EXAMPLES = [
   { input: "Chamber 1v4 clutch on Icebox", type: "Clutch Play",
@@ -68,7 +68,7 @@ export default function ExamplesSection() {
 
                 <div className="p-4 rounded-xl bg-[#FF4655]/4 border border-[rgba(255,70,85,0.12)]">
                   <div className="flex items-center gap-2 mb-2">
-                    <Image className="w-4 h-4 text-[#FF8A94]" />
+                    <ImageIcon className="w-4 h-4 text-[#FF8A94]" />
                     <span className="text-xs text-[#FF8A94] font-semibold uppercase tracking-wide">Thumbnail</span>
                   </div>
                   <p className="text-white text-lg font-black">{ex.thumbnail}</p>

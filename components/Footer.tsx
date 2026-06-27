@@ -1,6 +1,7 @@
 "use client";
 
 import { Zap, Heart, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 const LINKS = {
   Tools: [
@@ -64,13 +65,20 @@ export default function Footer() {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href}
-                      target={"external" in link && link.external ? "_blank" : undefined}
-                      rel={"external" in link && link.external ? "noopener noreferrer" : undefined}
-                      className="text-[#B5B5B5] hover:text-[#FF4655] text-sm transition-colors flex items-center gap-1">
-                      {link.label}
-                      {"external" in link && link.external && <ExternalLink className="w-3 h-3" aria-hidden="true" />}
-                    </a>
+                    {"external" in link && link.external ? (
+                      <a href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#B5B5B5] hover:text-[#FF4655] text-sm transition-colors flex items-center gap-1">
+                        {link.label}
+                        <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                      </a>
+                    ) : (
+                      <Link href={link.href}
+                        className="text-[#B5B5B5] hover:text-[#FF4655] text-sm transition-colors flex items-center gap-1">
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -86,9 +94,9 @@ export default function Footer() {
             Built with <Heart className="w-3.5 h-3.5 text-[#FF4655] fill-current" aria-hidden="true" /> for Valorant creators
           </p>
           <div className="flex items-center gap-4">
-            <a href="/privacy" className="hover:text-[#FF4655] transition-colors">Privacy</a>
-            <a href="/terms"   className="hover:text-[#FF4655] transition-colors">Terms</a>
-            <a href="/contact" className="hover:text-[#FF4655] transition-colors">Contact</a>
+            <Link href="/privacy" className="hover:text-[#FF4655] transition-colors">Privacy</Link>
+            <Link href="/terms"   className="hover:text-[#FF4655] transition-colors">Terms</Link>
+            <Link href="/contact" className="hover:text-[#FF4655] transition-colors">Contact</Link>
           </div>
         </div>
 

@@ -102,6 +102,22 @@ export default function ValorantShortsTitlesPage() {
           </div>
         </div>
 
+        {/* Detailed Guide Section */}
+        <div className="glass-card p-8 mb-8 space-y-6">
+          <h2 className="text-2xl font-black text-white">How the YouTube Shorts Algorithm Handles Titles in 2026</h2>
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
+            <p>
+              In 2026, the YouTube Shorts algorithm has evolved to heavily prioritize <strong>viewer retention, initial CTR, and behavioral engagement</strong> over simple keyword density. While search optimization still plays a critical role, the vast majority of Shorts views come from the algorithmic &quot;Shorts Feed&quot;. This feed uses real-time viewer signals to determine whether to push a clip to a wider audience.
+            </p>
+            <p>
+              When a user scrolls the feed, your title is one of the only pieces of text overlay visible. A successful title acts as an immediate micro-hook. It must complement the first 1-3 seconds of your video (the visual hook) to create what psychologists call a <strong>curiosity gap</strong>. If your title promises an outcome (&quot;Wait for the shot... 🤯&quot;), the viewer is significantly more likely to stay to the end of the 15-second loop to see the payoff. This directly boosts average view duration (AVD) and percentage viewed, which are the main signals that trigger the algorithm to scale distribution.
+            </p>
+            <p>
+              Additionally, YouTube&apos;s multimodal AI model analyzes the spoken audio, visual frames, and titles of Shorts to classify content. By using agent names (e.g. Jett, Reyna, Omen) and map locations (e.g. Bind, Breeze, Lotus) in your title, you are training the algorithm to target the exact sub-communities of gaming enthusiasts most likely to enjoy your play style, resulting in better initial performance and lower swipe-away rates.
+            </p>
+          </div>
+        </div>
+
         {/* FAQ */}
         <div className="mb-8">
           <h2 className="text-2xl font-black text-white mb-6">Frequently Asked Questions</h2>

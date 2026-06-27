@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* ── Map slot name → env var value ─────────────────────── */
 const SLOT_MAP: Record<string, string | undefined> = {
@@ -39,32 +39,53 @@ export default function AdBanner({
   label = "Advertisement",
   showDevPlaceholder = true,
 }: AdBannerProps) {
+  const [mounted, setMounted] = useState(false);
   const insRef = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
 
   const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || "ca-pub-5851997796287592";
   const resolvedSlot = SLOT_MAP[slot] ?? slot; // fall back to raw value if not in map
   const isDev = process.env.NODE_ENV === "development";
-  const isReady = !!publisherId && !!resolvedSlot;
+  
+  // Ad is only ready if we have a valid publisher ID and the slot ID is a numeric string
+  const isValidSlot = !!resolvedSlot && /^\d+$/.test(resolvedSlot);
+  const isReady = !!publisherId && isValidSlot;
 
   useEffect(() => {
-    if (!isReady || pushed.current || !insRef.current) return;
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-      pushed.current = true;
-    } catch {
-      // script not yet loaded
-    }
-  }, [isReady]);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
-  /* ── Placeholder (dev mode or missing config) ── */
-  if (!isReady) {
+  useEffect(() => {
+    if (!mounted || !isReady || pushed.current || !insRef.current) return;
+    
+    // Defer the push to ensure the DOM is fully laid out and has correct dimensions
+    const timer = setTimeout(() => {
+      try {
+        if (typeof window !== "undefined" && insRef.current) {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          pushed.current = true;
+        }
+      } catch (err) {
+        console.error("AdSense push error:", err);
+      }
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [mounted, isReady]);
+
+  // Determine placeholder height to prevent layout shift (CLS)
+  const heightClass =
+    format === "horizontal" ? "min-h-[90px]"  :
+    format === "vertical"   ? "min-h-[600px]" :
+    format === "rectangle"  ? "min-h-[250px]" :
+                              "min-h-[90px]";
+
+  /* ── Server-side and Initial Client Render (Hydration-Safe) ── */
+  if (!mounted || !isReady) {
     if (!showDevPlaceholder) return null;
-    const heightClass =
-      format === "horizontal" ? "min-h-[90px]"  :
-      format === "vertical"   ? "min-h-[600px]" :
-      format === "rectangle"  ? "min-h-[250px]" :
-                                "min-h-[90px]";
     return (
       <div
         className={`ad-placeholder ${heightClass} flex flex-col items-center justify-center gap-1 ${className}`}
@@ -80,7 +101,7 @@ export default function AdBanner({
     );
   }
 
-  /* ── Real AdSense unit ── */
+  /* ── Real AdSense unit (Only rendered client-side after mount) ── */
   return (
     <div className={`overflow-hidden text-center ${className}`}>
       <p className="text-[10px] text-[#B5B5B5]/30 mb-1 uppercase tracking-widest">

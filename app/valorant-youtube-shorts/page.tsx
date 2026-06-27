@@ -106,6 +106,22 @@ export default function ValorantYoutubeShortsPage() {
           </ul>
         </div>
 
+        {/* Detailed Guide Section */}
+        <div className="glass-card p-8 mb-8 space-y-6">
+          <h2 className="text-2xl font-black text-white">Growing from 0 to 10k Subscribers Using Valorant Content</h2>
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
+            <p>
+              Growing a channel from scratch is one of the hardest challenges for modern creators, but YouTube Shorts represents a unique opportunity due to its high discovery rate. In 2026, the key to reaching your first 10,000 subscribers is <strong>radical consistency and algorithmic alignment</strong>. This means posting high-quality, fully optimized shorts at least 4-5 times a week on a regular schedule.
+            </p>
+            <p>
+              To structure your path to growth, establish a specific visual and audio identity. Choose a signature editing style, such as sync-cutting your clip&apos;s kills to the beat of popular gaming soundtracks, and stick to it. Always edit in a 9:16 vertical ratio, crop the gameplay to center the crosshair and hud elements, and place subtitles in the middle of the screen to accommodate mobile viewers. The first 3 seconds must showcase the hook (e.g. the first kill of an Ace or a near-death experience) to prevent users from swiping away immediately.
+            </p>
+            <p>
+              Furthermore, leverage community interaction to build a loyal subscriber base. Pin a comment on your Short asking viewers to share their own rankings, or create interactive polls on your YouTube Community Tab asking which agent highlight they want to see next. This double-layer strategy builds a genuine community of returning viewers, which signal YouTube&apos;s recommendation engine to consistently feature your content on the subscriber feed.
+            </p>
+          </div>
+        </div>
+
         <div className="mb-8">
           <h2 className="text-2xl font-black text-white mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4">

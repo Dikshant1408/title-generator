@@ -51,6 +51,13 @@ export default function Analytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
+          
+          // Establish default consent configuration
+          gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+          });
+
           gtag('config', '${GA_ID}', {
             page_path: window.location.pathname,
             anonymize_ip: true,

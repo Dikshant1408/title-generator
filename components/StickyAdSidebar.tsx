@@ -12,14 +12,22 @@ export default function StickyAdSidebar({ side }: StickyAdSidebarProps) {
   const [isWide, setIsWide] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     // Only render ad ins tags when viewport is actually xl (1280px+)
     // This prevents the "No slot size for availableWidth=0" AdSense error
     const mq = window.matchMedia("(min-width: 1280px)");
-    setIsWide(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsWide(e.matches);
     mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
+
+    // Defer setting mounted and wide state to avoid synchronous cascading renders
+    const timer = setTimeout(() => {
+      setIsWide(mq.matches);
+      setMounted(true);
+    }, 0);
+
+    return () => {
+      mq.removeEventListener("change", handler);
+      clearTimeout(timer);
+    };
   }, []);
 
   const posClass = side === "left" ? "left-0" : "right-0";

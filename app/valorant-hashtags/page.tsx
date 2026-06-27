@@ -103,6 +103,22 @@ export default function ValorantHashtagsPage() {
           </div>
         </div>
 
+        {/* Detailed Guide Section */}
+        <div className="glass-card p-8 mb-8 space-y-6">
+          <h2 className="text-2xl font-black text-white">A Deep-Dive into Hashtag Density and Organic Reach</h2>
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
+            <p>
+              Many content creators make the mistake of either spamming dozens of unrelated hashtags or completely ignoring them. In 2026, social platforms use <strong>semantic search and content graphs</strong> to index posts. While the visual frames are analyzed by computer vision models, hashtags remain a strong signal for initial indexing, helping platforms determine which For You Page (FYP) niche or recommendation category to place your video in.
+            </p>
+            <p>
+              When distributing a Valorant clip, your hashtag strategy should follow a structured three-tiered hierarchy. The first tier consists of <strong>broad gaming tags</strong> (e.g. #gaming, #fyp) to enter the high-volume recommendation pools. The second tier targets <strong>niche game tags</strong> (e.g. #valorantclips, #vct, #valoranthighlights) to reach active Valorant communities. The third tier contains <strong>hyper-specific tags</strong> representing the agent, play type, or map (e.g. #jettoperator, #reyna1v5, #havenclutch). This targeted categorization helps secure initial engagement from viewers who are highly interested in that specific play style, signaling the platform to push the video to broader audiences.
+            </p>
+            <p>
+              Additionally, avoid using outdated or saturated hashtags that have no active viewer interest. Instead, align your hashtags with live esports tournaments (like #VCTChampions) to ride trending search traffic. Our AI-powered generator handles this taxonomy automatically, outputting custom-tailored hashtag stacks that minimize competition while maximizing targeted organic reach.
+            </p>
+          </div>
+        </div>
+
         {/* FAQ */}
         <div className="mb-8">
           <h2 className="text-2xl font-black text-white mb-6">Frequently Asked Questions</h2>

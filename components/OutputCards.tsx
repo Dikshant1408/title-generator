@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Copy, Check, TrendingUp, MessageSquare, Hash, Image, Sparkles, Share2 } from "lucide-react";
+import { Copy, Check, TrendingUp, MessageSquare, Hash, Image as ImageIcon, Sparkles, Share2 } from "lucide-react";
 import AdBanner from "./AdBanner";
 import { track } from "./Analytics";
 import type { GeneratedContent } from "./GeneratorSection";
@@ -158,7 +158,7 @@ export default function OutputCards({ content }: { content: GeneratedContent }) 
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <div className="p-2 rounded-lg bg-[#FF4655]/10">
-              <Image className="w-5 h-5 text-[#FF4655]" />
+              <ImageIcon className="w-5 h-5 text-[#FF4655]" />
             </div>
             <div>
               <h4 className="font-bold text-[#ECE8E1]">Thumbnail Text</h4>

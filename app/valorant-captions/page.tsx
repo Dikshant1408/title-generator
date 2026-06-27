@@ -121,6 +121,22 @@ export default function ValorantCaptionsPage() {
           </div>
         </div>
 
+        {/* Detailed Guide Section */}
+        <div className="glass-card p-8 mb-8 space-y-6">
+          <h2 className="text-2xl font-black text-white">Pacing and Engagement Strategies to Boost Retention</h2>
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
+            <p>
+              In short-form video algorithms (TikTok, Reels, Shorts), the first three seconds dictate the trajectory of your post. However, once a viewer is hooked visually, the <strong>caption acts as a support system to maintain attention and drive micro-interactions</strong>. Since these platforms display only a snippet of text initially, your first sentence must be punchy and clear, prompting the user to hit &quot;more&quot; to expand, which counts as positive engagement.
+            </p>
+            <p>
+              To optimize retention, your caption pacing should synchronize with the emotional rhythm of the video. If your clip is an intense, fast-paced clutch, keep the caption short, punchy, and question-based. If it is an educational tips clip, write a structured, bulleted summary. This gives viewers a reason to stay on the page longer as they read the breakdown while the clip loops in the background—instantly inflating your average view duration (AVD) metric, which the algorithm rewards.
+            </p>
+            <p>
+              Finally, prioritize interactive CTAs. Instead of generic requests like &quot;please follow,&quot; ask rank-specific questions or map-specific opinions (e.g. &quot;Is Icebox the worst map in the game?&quot;). This naturally incites debate, prompting viewers to type comments, which significantly boosts the video&apos;s viral velocity.
+            </p>
+          </div>
+        </div>
+
         <div className="mb-8">
           <h2 className="text-2xl font-black text-white mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4">

@@ -9,27 +9,27 @@ const SEO_SECTIONS = [
     color: "purple",
     title: "Valorant Shorts Titles Generator",
     slug: "valorant-shorts-titles",
-    content: `Creating viral YouTube Shorts titles for Valorant clips is an art. The best titles combine emotional triggers, specific agent names, and power words that make viewers stop scrolling. Our AI analyzes thousands of top-performing Valorant clips to generate titles that match current trends on the YouTube Shorts algorithm.
+    content: `Creating viral YouTube Shorts titles for Valorant clips is an art that requires understanding viewer psychology and algorithmic triggers. The best titles combine emotional hooks (like "insane", "unbelievable", "illegal"), specific numeric context (such as "1v5 clutch" or "3 HP"), and agent names to trigger community-specific traffic. Our AI analyzes thousands of top-performing Valorant clips to generate titles that match current trends on the YouTube Shorts algorithm.
 
-Whether you're posting a Jett ace, a Chamber clutch, or a Reyna 1v5, the right title can be the difference between 100 views and 100,000 views. Titles like "He just deleted the entire lobby 🤯" or "1v5 and he didn't even flinch 🧊" consistently outperform generic titles because they create curiosity and emotional investment.`,
+Whether you're posting a Jett ace, a Chamber clutch, or a Reyna 1v5, the right title can be the difference between 100 views and 100,000 views. Titles like "He just deleted the entire lobby 🤯" or "1v5 and he didn't even flinch 🧊" consistently outperform generic titles because they create curiosity and emotional investment. To maximize your click-through rate (CTR), keep your title under 60 characters so it doesn't get truncated on mobile feeds, and place the main hook right at the beginning.`,
   },
   {
     icon: Hash,
     color: "blue",
     title: "Valorant Hashtag Generator",
     slug: "valorant-hashtags",
-    content: `Using the right hashtags on TikTok, YouTube Shorts, and Instagram Reels can dramatically increase your Valorant clip's reach. The most effective Valorant hashtags in 2024 include a mix of broad gaming tags (#gaming, #fyp) and niche Valorant-specific tags (#valorantclips, #vct, #valoranthighlights).
+    content: `Using the right hashtags on TikTok, YouTube Shorts, and Instagram Reels can dramatically increase your Valorant clip's reach. The most effective Valorant hashtags in 2024 include a mix of broad gaming tags (#gaming, #fyp) and niche Valorant-specific tags (#valorantclips, #vct, #valoranthighlights) to signal the algorithm about your niche.
 
-Our AI generates 10 optimized hashtags per clip, tailored to your specific agent, play type, and platform. We avoid dead hashtags and focus on tags that are actively trending in the Valorant content creator community. The right hashtag stack can put your clip in front of thousands of new viewers who are already interested in Valorant content.`,
+Our AI generates 10 optimized hashtags per clip, tailored to your specific agent, play type, and platform. We avoid dead hashtags and focus on tags that are actively trending in the Valorant content creator community. The right hashtag stack can put your clip in front of thousands of new viewers who are already interested in Valorant content. For best results, use a combination of 3 high-volume tags, 4 mid-range tags, and 3 hyper-targeted tags representing the specific agent or map in your video.`,
   },
   {
     icon: MessageSquare,
     color: "cyan",
     title: "Viral Valorant Captions",
     slug: "valorant-captions",
-    content: `A great caption does three things: hooks the viewer in the first line, builds excitement, and ends with a call to action. For Valorant clips, captions that reference the specific agent, map, or play type perform significantly better than generic gaming captions.
+    content: `A great caption does three things: hooks the viewer in the first line, builds excitement, and ends with a call to action. For Valorant clips, captions that reference the specific agent, map, or play type perform significantly better than generic gaming captions because they foster a sense of shared gaming culture.
 
-Our AI generates captions optimized for TikTok's algorithm, Instagram Reels, and YouTube Shorts descriptions. Each caption includes relevant emojis, a hook line, and a CTA that encourages engagement — whether that's a like, comment, follow, or share. Engagement signals are critical for getting your clip pushed to more viewers.`,
+Our AI generates captions optimized for TikTok's algorithm, Instagram Reels, and YouTube Shorts descriptions. Each caption includes relevant emojis, a hook line, and a CTA that encourages engagement — whether that's a like, comment, follow, or share. Engagement signals are critical for getting your clip pushed to more viewers. A pro tip is to ask a controversial or interesting question in the caption, such as "Is this the best Jett in Immortal?" to spark a debate in the comments section, driving up engagement metrics.`,
   },
   {
     icon: PlayCircle,
@@ -38,7 +38,7 @@ Our AI generates captions optimized for TikTok's algorithm, Instagram Reels, and
     slug: "valorant-youtube-titles",
     content: `YouTube's algorithm rewards click-through rate (CTR) above almost everything else. A title that gets 10% CTR will outperform a title with 3% CTR even if the video quality is identical. For Valorant content, the highest-performing titles use specific numbers ("1v5"), emotional words ("insane", "illegal", "broken"), and agent names.
 
-Our generator creates titles specifically optimized for YouTube's search and recommendation algorithm. We analyze what's currently trending in the Valorant content space and generate titles that balance searchability with click-worthiness. The result is titles that both rank in search and get clicked when recommended.`,
+Our generator creates titles specifically optimized for YouTube's search and recommendation algorithm. We analyze what's currently trending in the Valorant content space and generate titles that balance searchability with click-worthiness. The result is titles that both rank in search and get clicked when recommended. Additionally, alignment between your title and the thumbnail text is critical — they should complement each other, with the thumbnail showing a visual teaser and the title stating the emotional payoff.`,
   },
 ];
 

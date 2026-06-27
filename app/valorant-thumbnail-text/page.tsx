@@ -106,6 +106,22 @@ export default function ValorantThumbnailTextPage() {
           </ul>
         </div>
 
+        {/* Detailed Guide Section */}
+        <div className="glass-card p-8 mb-8 space-y-6">
+          <h2 className="text-2xl font-black text-white">Graphic Design Principles for High-CTR Gaming Thumbnails</h2>
+          <div className="space-y-4 text-[#B5B5B5] leading-relaxed">
+            <p>
+              When a user browses YouTube on a mobile device, their eyes focus first on the thumbnail image before reading the video title. This means your thumbnail text acts as the primary hook. To optimize your Click-Through Rate (CTR), you must implement core graphic design principles specifically tailored for small screen viewing.
+            </p>
+            <p>
+              The most critical principle is <strong>typographic hierarchy and visual scale</strong>. Select heavy, geometric sans-serif typefaces (e.g. Anton, Impact, or Montserrat Black) and scale the text so it occupies at least 25% of the thumbnail canvas. Avoid placing text in the bottom-right corner, as this area is covered by YouTube&apos;s time indicator overlay. Furthermore, ensure high contrast by using neon color pairings (like warning yellow or hot pink) paired with a heavy black outline (5-10 pixels) or drop shadow. This guarantees the text remains legible even when shrunk down to a 100px mobile feed size.
+            </p>
+            <p>
+              Finally, align the thumbnail text semantically with the video title, but do not repeat it. If your title is &quot;How I hit Radiant rank in Valorant&quot;, your thumbnail text should say &quot;IMPOSSIBLE DEFEAT&quot; or &quot;RADIANT SECURED&quot; instead of repeating the title. This complementary approach builds intrigue and satisfies the curiosity gap, driving immediate clicks.
+            </p>
+          </div>
+        </div>
+
         <div className="mb-8">
           <h2 className="text-2xl font-black text-white mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4">

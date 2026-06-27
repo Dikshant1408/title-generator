@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import Analytics from "@/components/Analytics";
+import { CookieConsent } from "@/components/ClientOnlyComponents";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -61,7 +62,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="google-adsense-account" content={PUB_ID} />
         <meta name="google-site-verification" content="VbOud-rNqUMkcxFbAo5MAilwSmfScxu3ro_2z63BxUw" />
         {/* AdSense verification — hardcoded static src so the crawler can see it */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5851997796287592"
@@ -85,26 +85,31 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             })
           }}
         />
-        {/* Popunder ad */}
-        <script
-          async
-          // eslint-disable-next-line @next/next/no-sync-scripts
-          src="https://pl29702042.effectivecpmnetwork.com/f8/5b/b1/f85bb1105c24813e55e12295d3e5e40d.js"
-        />
       </head>
       <body className={`${inter.className} page-bg min-h-screen`}>
         {children}
         <Analytics />
+        <CookieConsent />
+        {/* Popunder ad */}
+        {process.env.NEXT_PUBLIC_DISABLE_INTRUSIVE_ADS !== "true" && (
+          <Script
+            id="adsterra-popunder"
+            src="https://pl29702042.effectivecpmnetwork.com/f8/5b/b1/f85bb1105c24813e55e12295d3e5e40d.js"
+            strategy="afterInteractive"
+          />
+        )}
         {/* Auto Ads — guarded against duplicate calls */}
         <Script id="adsense-auto" strategy="afterInteractive">
           {`(function(){try{var a=window.adsbygoogle=window.adsbygoogle||[];if(!a._autoInit){a._autoInit=true;a.push({google_ad_client:"${PUB_ID}",enable_page_level_ads:true});}}catch(e){}})();`}
         </Script>
         {/* Social Bar */}
-        <Script
-          id="adsterra-social-bar"
-          src="https://pl29722005.effectivecpmnetwork.com/88/4b/0a/884b0a82630c658bdefb99b1fd74f6b8.js"
-          strategy="afterInteractive"
-        />
+        {process.env.NEXT_PUBLIC_DISABLE_INTRUSIVE_ADS !== "true" && (
+          <Script
+            id="adsterra-social-bar"
+            src="https://pl29722005.effectivecpmnetwork.com/88/4b/0a/884b0a82630c658bdefb99b1fd74f6b8.js"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );
